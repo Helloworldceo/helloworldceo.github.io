@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David 大卫 — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ═══ PARTICLES CANVAS ═══ -->
+<canvas id="particles"></canvas>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#hero" class="nav-logo">D<span>avid</span></a>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon-light">☀️</span>
+        <span class="theme-icon-dark">🌙</span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certs</a></li>
+      <li><a href="#awards">Awards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-photo">
+      <img src="photo.jpg" alt="David 大卫">
+    </div>
+    <p class="hero-greeting">Hello, I'm</p>
+    <h1 class="hero-name">David <span class="chinese">大卫</span></h1>
+    <p class="hero-tagline">
+      <span id="typed-text"></span><span class="typed-cursor">|</span>
+    </p>
+    <p class="hero-tagline-cn">软件工程师 · 人工智能与机器学习 · 网络安全</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View My Work</a>
+      <a href="#contact" class="btn btn-outline">Get In Touch</a>
+      <a href="David_Huawei.pdf" download class="btn btn-download">⬇ Download CV</a>
+    </div>
+  </div>
+  <div class="scroll-indicator">
+    <div class="mouse">
+      <div class="mouse-wheel"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about" class="section">
+  <div class="container">
+    <h2 class="section-title">About Me <span class="cn">关于我</span></h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>A motivated Computer Science graduate with a Master's in Software Engineering and strong academic standing. Passionate about software development, innovation, and technology, with experience spanning AI/ML, cybersecurity, full-stack development, and the renewable energy sector.</p>
+        <p class="about-cn">具备计算机科学本科及软件工程硕士学位，学业成绩优异。热衷于软件开发、技术创新，同时深耕能源领域，对新能源、电动汽车充电及智慧能源系统抱有浓厚兴趣。</p>
+      </div>
+      <div class="about-facts">
+        <div class="fact-card">
+          <span class="fact-number">25+</span>
+          <span class="fact-label">Academic Honors<br>学术荣誉</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-number">9+</span>
+          <span class="fact-label">Years Freelancing<br>自由职业经验</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-number">3</span>
+          <span class="fact-label">Languages<br>语言能力</span>
+        </div>
+        <div class="fact-card">
+          <span class="fact-number">USTC</span>
+          <span class="fact-label">Master's Degree<br>硕士学位</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SKILLS ═══ -->
+<section id="skills" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Skills <span class="cn">技能</span></h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>Programming 编程</h3>
+        <div class="skill-tags">
+          <span>Python</span><span>Java</span><span>JavaScript</span>
+          <span>C/C++</span><span>SQL</span><span>HTML/CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🤖</div>
+        <h3>AI / ML 人工智能</h3>
+        <div class="skill-tags">
+          <span>Deep Learning</span><span>SVM</span><span>Transformer</span>
+          <span>GPT / BERT</span><span>Computer Vision</span><span>Generative AI</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔒</div>
+        <h3>Cybersecurity 网络安全</h3>
+        <div class="skill-tags">
+          <span>CSRF</span><span>XSS</span><span>SQL Injection</span>
+          <span>SSL/TLS</span><span>PKI</span><span>Penetration Testing</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🌐</div>
+        <h3>Software Dev 软件开发</h3>
+        <div class="skill-tags">
+          <span>React</span><span>Node.js</span><span>Angular</span>
+          <span>REST APIs</span><span>Docker</span><span>Git</span><span>Linux</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⚡</div>
+        <h3>Energy 能源</h3>
+        <div class="skill-tags">
+          <span>EV Charging</span><span>ESS</span><span>Microgrids</span>
+          <span>PV / Solar</span><span>Edge Computing</span><span>Cloud Platforms</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🗣️</div>
+        <h3>Languages 语言</h3>
+        <div class="skill-tags">
+          <span>English (Fluent)</span><span>Chinese (HSK 4)</span><span>French (B1)</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EXPERIENCE ═══ -->
+<section id="experience" class="section">
+  <div class="container">
+    <h2 class="section-title">Experience <span class="cn">工作经验</span></h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>Solution Engineer — New Energy & EV Charging</h3>
+            <span class="timeline-date">2025 – Present</span>
+          </div>
+          <p class="timeline-subtitle">解决方案工程师 — 新能源与电动汽车充电</p>
+          <ul>
+            <li>Specialized in international pre-sales technical support for new energy and EV charging solutions</li>
+            <li>Responsible for overseas business trips, product introduction, on-site inspections, and customized solutions</li>
+            <li>Scope: on-grid/off-grid, AC/DC chargers, ESS, microgrids, PV, wind, VPP, edge computing, cloud platforms</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>Freelance Full-Stack Developer & Tutor</h3>
+            <span class="timeline-date">2017 – Present</span>
+          </div>
+          <p class="timeline-subtitle">自由职业者：全栈开发、网络、教师</p>
+          <ul>
+            <li>Developed and launched websites including <a href="https://ethiopianweb.net" target="_blank" rel="noopener">ethiopianweb.net</a></li>
+            <li>Offered IT tutoring and consultation for clients and students</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>Teaching Assistant — Changzhou University</h3>
+            <span class="timeline-date">2020 – 2023</span>
+          </div>
+          <p class="timeline-subtitle">助教，国际学生办公室 — 常州大学</p>
+          <ul>
+            <li>Facilitated translation and communication between foreign and Chinese teaching staff</li>
+            <li>Participated in international student recruitment and event planning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>Social Media Advertising</h3>
+            <span class="timeline-date">2014 – Present</span>
+          </div>
+          <p class="timeline-subtitle">社交媒体广告推广</p>
+          <ul>
+            <li>Promoted content via Facebook, Instagram, X, WeChat, Telegram, TikTok, and more</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Projects <span class="cn">项目经历</span></h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-badge">⚡ Energy</div>
+        <h3>EV Charging & Energy Storage Solutions</h3>
+        <p class="project-cn">充电与储能方案设计</p>
+        <p>Designed solutions for EV charging stations, residential battery storage, and energy storage for hotels and hospitals.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🤖 AI/ML</div>
+        <h3>SVM-Based Driver Drowsiness Detection</h3>
+        <p class="project-cn">基于SVM的驾驶员疲劳检测</p>
+        <p>Built an ML pipeline for classifying drowsy vs. alert states from EEG brain waves. Compared SVM (98%), LSTM (93%), KNN (87%).</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🤖 AI/ML</div>
+        <h3>Deep Learning — NanoGPT</h3>
+        <p class="project-cn">深度学习项目 — NanoGPT训练与分析</p>
+        <p>NanoGPT training & analysis, Transformer architecture study (GPT, BERT, ELMo).</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🔒 Security</div>
+        <h3>Web Security Testing</h3>
+        <p class="project-cn">Web安全测试</p>
+        <p>CSRF, XSS, SQL Injection, SSL/TLS penetration testing labs in Docker-based SEED environments.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🌐 Web</div>
+        <h3>Study Abroad Management Website</h3>
+        <p class="project-cn">出国留学管理网站</p>
+        <p>Full-stack web application for managing study abroad processes.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🏆 Award</div>
+        <h3>Maze Robot</h3>
+        <p class="project-cn">迷宫机器人（获奖）</p>
+        <p>Autonomous maze-solving robot with sensor integration. Won 3rd Prize at World Vocational College Skills Competition.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🔗 Blockchain</div>
+        <h3>Blockchain Implementation</h3>
+        <p class="project-cn">区块链实现</p>
+        <p>Distributed systems and cryptographic security protocols.</p>
+      </div>
+
+      <div class="project-card">
+        <div class="project-badge">🌐 Web</div>
+        <h3>Responsive Web Design Projects</h3>
+        <p class="project-cn">响应式网页设计项目</p>
+        <p>Modern responsive websites using contemporary frameworks and design patterns.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EDUCATION ═══ -->
+<section id="education" class="section">
+  <div class="container">
+    <h2 class="section-title">Education <span class="cn">教育背景</span></h2>
+    <div class="edu-grid">
+
+      <div class="edu-card edu-highlight">
+        <div class="edu-year">2023 – Present</div>
+        <h3>MSc in Software Engineering</h3>
+        <p class="edu-cn">软件工程硕士</p>
+        <p class="edu-school">University of Science and Technology of China (USTC)<br>中国科学技术大学</p>
+      </div>
+
+      <div class="edu-card edu-highlight">
+        <div class="edu-year">2019 – 2023</div>
+        <h3>BSc in Computer Science <span class="gpa">GPA: 4.7/5.0</span></h3>
+        <p class="edu-cn">计算机科学学士</p>
+        <p class="edu-school">Changzhou University 常州大学</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-year">2021</div>
+        <h3>Global Summer School: Innovation for SDG</h3>
+        <p class="edu-cn">全球暑期学校：可持续发展目标创新</p>
+        <p class="edu-school">Tsinghua University 清华大学</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-year">2021</div>
+        <h3>Innovation & Entrepreneurship in the Digital Economy</h3>
+        <p class="edu-cn">数字经济中的创新与创业</p>
+        <p class="edu-school">Tsinghua University 清华大学</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-year">2019</div>
+        <h3>Chinese Language Studies</h3>
+        <p class="edu-cn">汉语学习</p>
+        <p class="edu-school">Qingdao University 青岛大学</p>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-year">2018</div>
+        <h3>Computer Hardware & Software Maintenance</h3>
+        <p class="edu-cn">计算机软硬件维护</p>
+        <p class="edu-school">EBS Computer Training EBS计算机培训中心</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CERTIFICATIONS ═══ -->
+<section id="certifications" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Certifications <span class="cn">认证证书</span></h2>
+
+    <div class="cert-grid">
+      <div class="cert-item">
+        <span class="cert-icon">🏛️</span>
+        <div>
+          <strong>Blockchain & Digital Economy Entrepreneurship (Med AI)</strong>
+          <p>Tsinghua University, 2021<br><span class="cn">清华大学，2021年</span></p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <span class="cert-icon">📋</span>
+        <div>
+          <strong>Project Management Certification</strong>
+          <p>项目管理认证 (2019 – Present)</p>
+        </div>
+      </div>
+      <div class="cert-item">
+        <span class="cert-icon">🗣️</span>
+        <div>
+          <strong>Language Proficiency</strong>
+          <p>HSK 4 Chinese 汉语水平考试 · French B1 法语</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="cert-sub-title">Technical Certificates 技术认证</h3>
+    <div class="cert-badges">
+      <a href="Python%20Developer.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🐍</span>Python Developer
+      </a>
+      <a href="Introduction%20To%20Python.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🐍</span>Intro to Python
+      </a>
+      <a href="Python%20for%20Beginners.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🐍</span>Python for Beginners
+      </a>
+      <a href="Web%20Developer%20with%20Angular.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🅰️</span>Web Dev with Angular
+      </a>
+      <a href="Introduction%20to%20HTML.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🌐</span>Intro to HTML
+      </a>
+      <a href="Introduction%20to%20C.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">⚙️</span>Intro to C
+      </a>
+      <a href="SQL%20Intermediate%20Certificate.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🗄️</span>SQL Intermediate
+      </a>
+      <a href="Data%20Analysis.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">📊</span>Data Analysis
+      </a>
+      <a href="Data%20Analysis%20Fundamentals.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">📊</span>Data Analysis Fundamentals
+      </a>
+      <a href="Coding%20for%20Data.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">📊</span>Coding for Data
+      </a>
+      <a href="Android%20Developer.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">📱</span>Android Developer
+      </a>
+      <a href="Android%20Developer%20Fundamentals.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">📱</span>Android Dev Fundamentals
+      </a>
+      <a href="Programming%20Fundamentals.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">💡</span>Programming Fundamentals
+      </a>
+      <a href="Tech%20for%20Everyone.pdf" target="_blank" class="cert-badge">
+        <span class="cert-badge-icon">🖥️</span>Tech for Everyone
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══ AWARDS ═══ -->
+<section id="awards" class="section">
+  <div class="container">
+    <h2 class="section-title">Honors & Awards <span class="cn">荣誉奖项</span></h2>
+    <div class="awards-list">
+      <div class="award-item">
+        <span class="award-icon">🏅</span>
+        <div>
+          <strong>China Scholarship Council (CSC) Award</strong>
+          <p>国家留学基金委（CSC）奖学金</p>
+        </div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">🥉</span>
+        <div>
+          <strong>3rd Prize — World Vocational College Skills Competition (Maze Robot)</strong>
+          <p>世界职业院校技能大赛三等奖（迷宫机器人）</p>
+        </div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">⭐</span>
+        <div>
+          <strong>Outstanding Student Leader — Changzhou University</strong>
+          <p>常州大学杰出学生干部</p>
+        </div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">💡</span>
+        <div>
+          <strong>Innovation Recognition — Tsinghua University</strong>
+          <p>清华大学创新表彰</p>
+        </div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">📺</span>
+        <div>
+          <strong>Featured on CGTN, CCTV1, China Daily</strong>
+          <p>曾在CGTN、CCTV1、《中国日报》上报道</p>
+        </div>
+      </div>
+      <div class="award-item">
+        <span class="award-icon">🎓</span>
+        <div>
+          <strong>25+ Academic Honors and Certifications</strong>
+          <p>获得25+项学术荣誉和认证</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <h2 class="section-title">Contact <span class="cn">联系方式</span></h2>
+    <div class="contact-grid">
+      <a href="mailto:davidabdisa40@gmail.com" class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <strong>Email</strong>
+        <p>davidabdisa40@gmail.com</p>
+      </a>
+      <a href="tel:+8613235178205" class="contact-card">
+        <span class="contact-icon">📱</span>
+        <strong>Phone</strong>
+        <p>+86 132-3517-8205</p>
+      </a>
+      <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" class="contact-card">
+        <span class="contact-icon">💼</span>
+        <strong>LinkedIn</strong>
+        <p>dawit-abdisa-44915518a</p>
+      </a>
+      <div class="contact-card">
+        <span class="contact-icon">💬</span>
+        <strong>WeChat</strong>
+        <p>Helloworld_Ceo</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>© 2026 David 大卫 — Built with passion</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
