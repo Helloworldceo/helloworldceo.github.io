@@ -172,10 +172,33 @@ updateActiveNav();
 
 // ─── Reveal on Scroll ──────────────────────────────────────────────────────
 (function initReveal() {
-  const items = document.querySelectorAll(
+  const containers = [
+    '.skills-grid',
+    '.projects-grid',
+    '.edu-grid',
+    '.cert-grid',
+    '.cert-badges',
+    '.awards-list',
+    '.contact-grid',
+    '.about-facts',
+    '.timeline',
+  ];
+
+  // add reveal + stagger classes to children of grid containers
+  containers.forEach(sel => {
+    const parent = document.querySelector(sel);
+    if (!parent) return;
+    Array.from(parent.children).forEach((child, i) => {
+      child.classList.add('reveal', `stagger-${Math.min(i + 1, 11)}`);
+    });
+  });
+
+  // fallback: any remaining items without reveal
+  document.querySelectorAll(
     '.skill-card, .timeline-item, .project-card, .edu-card, .cert-item, .cert-badge, .award-item, .contact-card, .fact-card'
-  );
-  items.forEach(el => el.classList.add('reveal'));
+  ).forEach(el => {
+    if (!el.classList.contains('reveal')) el.classList.add('reveal');
+  });
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -188,6 +211,80 @@ updateActiveNav();
     { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
   );
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+// ─── Counter Animation for Fact Numbers ────────────────────────────────────
+(function initCounters() {
+  const factNumbers = document.querySelectorAll('.fact-number');
+  if (!factNumbers.length) return;
+
+  function animateCounter(el, target, suffix) {
+    const duration = 1800;
+    const start = performance.now();
+    const initial = 0;
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.round(initial + (target - initial) * eased);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const text = el.textContent.trim();
+        const match = text.match(/^(\d+)(\+?)$/);
+        if (match) {
+          animateCounter(el, parseInt(match[1], 10), match[2]);
+        }
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  factNumbers.forEach(el => observer.observe(el));
+})();
+
+// ─── 3D Card Tilt Effect ───────────────────────────────────────────────────
+(function initTilt() {
+  if (window.matchMedia('(hover: none)').matches) return; // skip touch devices
+
+  const cards = document.querySelectorAll('.project-card');
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
+
+      card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
+      card.style.setProperty('--mouse-x', x + 'px');
+      card.style.setProperty('--mouse-y', y + 'px');
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  });
+
+  // radial glow follow for all glow cards
+  document.querySelectorAll('.skill-card, .edu-card, .timeline-content').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      card.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+      card.style.setProperty('--mouse-y', (e.clientY - rect.top) + 'px');
+    });
+  });
 })();
 
 // ─── Navbar Shadow on Scroll ───────────────────────────────────────────────
