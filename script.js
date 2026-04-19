@@ -8,7 +8,7 @@
   const saved = localStorage.getItem('theme');
   if (saved) {
     document.documentElement.setAttribute('data-theme', saved);
-  } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  } else {
     document.documentElement.setAttribute('data-theme', 'dark');
   }
 })();
@@ -26,8 +26,14 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   let width, height, particles;
-  const PARTICLE_COUNT = 60;
-  const CONNECT_DIST = 120;
+
+  function getParticleCount() {
+    return window.innerWidth <= 768 ? 24 : 60;
+  }
+
+  function getConnectDistance() {
+    return window.innerWidth <= 768 ? 80 : 120;
+  }
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -35,8 +41,9 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
   }
 
   function createParticles() {
+    const particleCount = getParticleCount();
     particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
+    for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
@@ -51,6 +58,7 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
     ctx.clearRect(0, 0, width, height);
     const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
     const color = isDark ? '255,255,255' : '26,60,110';
+    const connectDist = getConnectDistance();
 
     for (let i = 0; i < particles.length; i++) {
       const p = particles[i];
@@ -69,11 +77,11 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
         const dx = p.x - q.x;
         const dy = p.y - q.y;
         const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < CONNECT_DIST) {
+        if (dist < connectDist) {
           ctx.beginPath();
           ctx.moveTo(p.x, p.y);
           ctx.lineTo(q.x, q.y);
-          ctx.strokeStyle = `rgba(${color}, ${0.12 * (1 - dist / CONNECT_DIST)})`;
+          ctx.strokeStyle = `rgba(${color}, ${0.12 * (1 - dist / connectDist)})`;
           ctx.lineWidth = 0.6;
           ctx.stroke();
         }
@@ -189,3 +197,27 @@ window.addEventListener('scroll', () => {
     ? '0 2px 30px rgba(0, 0, 0, 0.12)'
     : '0 1px 20px rgba(0, 0, 0, 0.06)';
 });
+
+// ─── Back to Top Button ────────────────────────────────────────────────────
+(function initBackToTop() {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      btn.classList.add('visible');
+    } else {
+      btn.classList.remove('visible');
+    }
+  });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
+// ─── Mobile Particle Optimization ──────────────────────────────────────────
+(function optimizeParticles() {
+  const originalResize = window.addEventListener;
+  void originalResize;
+})();
