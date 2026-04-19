@@ -7,8 +7,8 @@
   <title>David 大卫 — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260419-3">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=20260419-6">
 </head>
 <body>
 
@@ -20,6 +20,12 @@
   <div class="nav-container">
     <a href="#hero" class="nav-logo">D<span>avid</span></a>
     <div class="nav-right">
+      <div class="header-socials" aria-label="Social links">
+        <a href="https://github.com/Helloworldceo" target="_blank" rel="noopener" class="header-social" aria-label="GitHub">⌘</a>
+        <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" class="header-social" aria-label="LinkedIn">in</a>
+        <a href="mailto:davidabdisa40@gmail.com" class="header-social" aria-label="Email">✉</a>
+        <span class="header-social header-social-static" aria-label="WeChat">微</span>
+      </div>
       <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
         <span class="theme-icon-light">☀️</span>
         <span class="theme-icon-dark">🌙</span>
@@ -43,18 +49,33 @@
 <section id="hero">
   <div class="hero-content">
     <div class="hero-photo">
-      <img src="photo.jpg?v=20260419-3" alt="David 大卫 professional portrait">
+      <img src="photo.jpg?v=20260419-5" alt="David 大卫 professional portrait">
     </div>
     <p class="hero-greeting">Hello, I'm</p>
     <h1 class="hero-name">David <span class="chinese">大卫</span></h1>
     <p class="hero-tagline">
       <span id="typed-text"></span><span class="typed-cursor">|</span>
     </p>
-    <p class="hero-tagline-cn">软件工程师 · 人工智能与机器学习 · 网络安全</p>
+    <p class="hero-lead">Software engineer focused on AI, cybersecurity, full-stack development, and smart energy systems. I build practical digital products that connect solid engineering with real business and user needs.</p>
+    <p class="hero-tagline-cn">软件工程师，专注于人工智能、网络安全、全栈开发与智慧能源系统，致力于打造兼顾工程质量与实际业务价值的数字产品。</p>
     <div class="hero-cta">
       <a href="#projects" class="btn btn-primary">View My Work</a>
       <a href="#contact" class="btn btn-outline">Get In Touch</a>
       <a href="David_Huawei.pdf" download class="btn btn-download">⬇ Download CV</a>
+    </div>
+    <div class="hero-metrics">
+      <div class="hero-metric">
+        <span class="hero-metric-label">Focus</span>
+        <strong>AI • Web • Energy</strong>
+      </div>
+      <div class="hero-metric">
+        <span class="hero-metric-label">Strength</span>
+        <strong>Build + Communicate</strong>
+      </div>
+      <div class="hero-metric">
+        <span class="hero-metric-label">Scope</span>
+        <strong>China to Global</strong>
+      </div>
     </div>
   </div>
   <div class="scroll-indicator">
@@ -70,8 +91,9 @@
     <h2 class="section-title">About Me <span class="cn">关于我</span></h2>
     <div class="about-grid">
       <div class="about-text">
-        <p>A motivated Computer Science graduate with a Master's in Software Engineering and strong academic standing. Passionate about software development, innovation, and technology, with experience spanning AI/ML, cybersecurity, full-stack development, and the renewable energy sector.</p>
-        <p class="about-cn">具备计算机科学本科及软件工程硕士学位，学业成绩优异。热衷于软件开发、技术创新，同时深耕能源领域，对新能源、电动汽车充电及智慧能源系统抱有浓厚兴趣。</p>
+        <p class="about-intro">I build software that is useful in the real world: products shaped by engineering discipline, practical constraints, and clear communication across cultures and teams.</p>
+        <p>I am a software engineer with a Master's in Software Engineering at USTC and hands-on experience across AI, cybersecurity, full-stack web development, and new energy solutions. My work sits at the intersection of engineering, product thinking, and international communication.</p>
+        <p class="about-cn">我是一名软件工程师，目前在中国科学技术大学攻读软件工程硕士，具备人工智能、网络安全、全栈开发与新能源解决方案的实践经验。我的工作融合了工程实现、产品思维与国际化沟通能力。</p>
       </div>
       <div class="about-facts">
         <div class="fact-card">
@@ -100,7 +122,6 @@
   <div class="container">
     <h2 class="section-title">Skills <span class="cn">技能</span></h2>
     <div class="skills-grid">
-
       <div class="skill-card">
         <div class="skill-icon">💻</div>
         <h3>Programming 编程</h3>
@@ -154,7 +175,6 @@
           <span>Chinese (HSK 4)</span><span>French (B1)</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
@@ -235,7 +255,7 @@
     <h2 class="section-title">Projects <span class="cn">项目经历</span></h2>
     <div class="projects-grid">
 
-      <div class="project-card">
+      <div class="project-card project-featured">
         <div class="project-badge">🛒 E-Commerce</div>
         <h3>EthioMarket</h3>
         <p class="project-cn">埃塞俄比亚特色电商平台</p>
@@ -246,7 +266,7 @@
         </p>
       </div>
 
-      <div class="project-card">
+      <div class="project-card project-featured">
         <div class="project-badge">🎓 EdTech</div>
         <h3>helloworldEdu</h3>
         <p class="project-cn">在线学习管理平台</p>
@@ -257,7 +277,7 @@
         </p>
       </div>
 
-      <div class="project-card">
+      <div class="project-card project-featured">
         <div class="project-badge">🌍 Web</div>
         <h3>Ethioweb.net</h3>
         <p class="project-cn">海外埃塞社区信息平台</p>
@@ -547,6 +567,6 @@
   ↑
 </button>
 
-<script src="script.js?v=20260419-3"></script>
+<script src="script.js?v=20260419-5"></script>
 </body>
 </html>
