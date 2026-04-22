@@ -136,7 +136,9 @@
         <h3>AI / ML 人工智能</h3>
         <div class="skill-tags">
           <span>Deep Learning</span><span>SVM</span><span>Transformer</span>
-          <span>GPT / BERT</span><span>Computer Vision</span><span>Generative AI</span>
+          <span>GPT / BERT</span><span>Generative AI</span><span>RAG</span>
+          <span>LangChain</span><span>LangGraph</span><span>Agents</span>
+          <span>ChromaDB</span><span>LangSmith</span><span>RAGAS</span>
         </div>
       </div>
 
@@ -145,7 +147,8 @@
         <h3>Cybersecurity 网络安全</h3>
         <div class="skill-tags">
           <span>CSRF</span><span>XSS</span><span>SQL Injection</span>
-          <span>SSL/TLS</span><span>PKI</span><span>Penetration Testing</span>
+          <span>IDOR</span><span>SSL/TLS</span><span>PKI</span>
+          <span>Penetration Testing</span><span>Prompt Injection</span><span>Scapy</span>
         </div>
       </div>
 
@@ -154,7 +157,8 @@
         <h3>Software Dev 软件开发</h3>
         <div class="skill-tags">
           <span>React</span><span>Node.js</span><span>Angular</span>
-          <span>REST APIs</span><span>Docker</span><span>Git</span><span>Linux</span>
+          <span>REST APIs</span><span>Streamlit</span><span>FastAPI</span>
+          <span>Docker</span><span>Git</span><span>Linux</span>
         </div>
       </div>
 
@@ -196,6 +200,14 @@
         <span>EV Charging</span><span>·</span>
         <span>ESS</span><span>·</span>
         <span>Microgrids</span><span>·</span>
+        <span>LangChain</span><span>·</span>
+        <span>LangGraph</span><span>·</span>
+        <span>RAG</span><span>·</span>
+        <span>ChromaDB</span><span>·</span>
+        <span>LangSmith</span><span>·</span>
+        <span>Streamlit</span><span>·</span>
+        <span>Scapy</span><span>·</span>
+        <span>Prompt Injection</span><span>·</span>
         <!-- duplicate for seamless loop -->
         <span>Python</span><span>·</span>
         <span>JavaScript</span><span>·</span>
@@ -214,6 +226,14 @@
         <span>EV Charging</span><span>·</span>
         <span>ESS</span><span>·</span>
         <span>Microgrids</span><span>·</span>
+        <span>LangChain</span><span>·</span>
+        <span>LangGraph</span><span>·</span>
+        <span>RAG</span><span>·</span>
+        <span>ChromaDB</span><span>·</span>
+        <span>LangSmith</span><span>·</span>
+        <span>Streamlit</span><span>·</span>
+        <span>Scapy</span><span>·</span>
+        <span>Prompt Injection</span><span>·</span>
       </div>
     </div>
 
@@ -296,6 +316,68 @@
     <h2 class="section-title"><span class="section-number">04 — Projects</span>Projects <span class="cn">项目经历</span></h2>
     <div class="projects-grid">
 
+      <!-- ── AI Engineering Projects ── -->
+      <div class="project-card project-featured">
+        <div class="project-badge">🤖 AI Engineering</div>
+        <h3>RAG Assistant</h3>
+        <p class="project-cn">文档问答 RAG 助手</p>
+        <p>Conversational RAG assistant — upload PDFs, TXT, or Markdown and ask questions grounded in your documents, with source citations and chat memory. Built with DeepSeek, LangChain LCEL, ChromaDB, and Streamlit. Includes RAGAS evaluation harness and LangSmith tracing.</p>
+        <p class="project-links">
+          <a href="https://github.com/helloworldceo/rag-assistant" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <div class="project-card project-featured">
+        <div class="project-badge">🤖 AI Engineering</div>
+        <h3>SQL Analyst</h3>
+        <p class="project-cn">自然语言转 SQL 数据分析工具</p>
+        <p>Ask questions about your data in plain English — converts natural language to SQL, auto-selects the best chart type, and returns AI-generated bullet-point insights. Blocks mutating queries for safety. Built with DeepSeek, LangChain, Plotly, and Streamlit.</p>
+        <p class="project-links">
+          <a href="https://github.com/helloworldceo/sql-analyst" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <div class="project-card project-featured">
+        <div class="project-badge">🤖 AI Engineering</div>
+        <h3>Todo &amp; Email AI Agent</h3>
+        <p class="project-cn">智能待办事项与邮件代理</p>
+        <p>Agentic assistant that reads, drafts, and sends emails via Gmail API while managing a to-do list across multi-step reasoning loops. Built with LangGraph, Gmail API, DeepSeek, and Streamlit.</p>
+        <p class="project-links">
+          <a href="https://github.com/helloworldceo/todo-email-agent" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <div class="project-card project-featured">
+        <div class="project-badge">🔒 AI Security</div>
+        <h3>Prompt Injection Scanner</h3>
+        <p class="project-cn">提示词注入漏洞扫描工具</p>
+        <p>CLI tool that tests LLM system prompts against 22 categorized prompt injection payloads using keyword and LLM-judge evaluation modes. Detects jailbreaks, role-play bypasses, and data-extraction attacks.</p>
+        <p class="project-links">
+          <a href="https://github.com/helloworldceo/prompt-injection-scanner" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <div class="project-card project-featured">
+        <div class="project-badge">🔒 Security</div>
+        <h3>Vulnerable Web App</h3>
+        <p class="project-cn">Web 安全漏洞教学平台</p>
+        <p>Intentionally vulnerable Flask + SQLite web application with 6 documented vulnerabilities (SQLi, Stored XSS, Reflected XSS, IDOR) and a professional security assessment report with PoC exploits and secure fixes.</p>
+        <p class="project-links">
+          <a href="https://github.com/helloworldceo/vuln-web-app" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <div class="project-card project-featured">
+        <div class="project-badge">🔒 Security</div>
+        <h3>Network Traffic Analyzer</h3>
+        <p class="project-cn">网络流量安全分析工具</p>
+        <p>Python CLI tool using Scapy to detect port scans (sliding-window algorithm) and cleartext credential leaks (FTP, Telnet, HTTP Basic Auth, POST bodies) from live interfaces or PCAP files, with colour-coded alerts and JSON reporting.</p>
+        <p class="project-links">
+          <a href="https://github.com/helloworldceo/network-traffic-analyzer" target="_blank" rel="noopener">GitHub</a>
+        </p>
+      </div>
+
+      <!-- ── Web & Commerce Projects ── -->
       <div class="project-card project-featured">
         <div class="project-badge">🛒 E-Commerce</div>
         <h3>EthioMarket</h3>
