@@ -175,6 +175,7 @@ updateActiveNav();
   const containers = [
     '.skills-grid',
     '.projects-grid',
+    '.cv-grid',
     '.edu-grid',
     '.cert-grid',
     '.cert-badges',

@@ -774,6 +774,95 @@ body {
   text-underline-offset: 2px;
 }
 
+/* ─── CVs ──────────────────────────────────────────────────────────────── */
+.cv-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.cv-card {
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--card-shadow);
+  border: 1px solid var(--card-border);
+  transition: var(--transition);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cv-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--card-hover);
+}
+
+.cv-card-primary {
+  background: linear-gradient(135deg, rgba(46, 116, 181, 0.14), rgba(78, 205, 196, 0.1));
+}
+
+.cv-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(46, 116, 181, 0.1), rgba(78, 205, 196, 0.1));
+  color: var(--accent);
+  margin-bottom: 0.9rem;
+}
+
+.cv-card h3 {
+  font-size: 1.2rem;
+  color: var(--primary);
+  margin-bottom: 0.3rem;
+}
+
+.cv-cn {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 0.8rem;
+}
+
+.cv-card > p {
+  color: var(--text);
+}
+
+.cv-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1rem;
+}
+
+.cv-tags span {
+  background: linear-gradient(135deg, rgba(46, 116, 181, 0.1), rgba(78, 205, 196, 0.1));
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 500;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(46, 116, 181, 0.15);
+}
+
+.cv-links {
+  display: flex;
+  gap: 0.9rem;
+  margin-top: 1.2rem;
+}
+
+.cv-links a {
+  color: var(--accent);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cv-links a:hover {
+  color: var(--accent-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ─── Education ────────────────────────────────────────────────────────── */
 .edu-grid {
   display: grid;
@@ -1108,6 +1197,7 @@ footer {
   }
 
   .projects-grid,
+  .cv-grid,
   .edu-grid {
     grid-template-columns: 1fr;
   }
