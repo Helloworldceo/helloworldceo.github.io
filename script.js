@@ -3,6 +3,31 @@
    Particles · Typing · Dark Mode · Reveal Animations
    ═══════════════════════════════════════════════════════════════════════════ */
 
+// ─── Google Analytics Loader ───────────────────────────────────────────────
+(function initAnalytics() {
+  const analytics = window.portfolioAnalytics || {};
+  const measurementId = typeof analytics.gaMeasurementId === 'string'
+    ? analytics.gaMeasurementId.trim()
+    : '';
+
+  if (!/^G-[A-Z0-9]+$/i.test(measurementId)) return;
+
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function gtag() {
+    window.dataLayer.push(arguments);
+  };
+
+  window.gtag('js', new Date());
+  window.gtag('config', measurementId, {
+    anonymize_ip: true,
+  });
+
+  const analyticsScript = document.createElement('script');
+  analyticsScript.async = true;
+  analyticsScript.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
+  document.head.appendChild(analyticsScript);
+})();
+
 // ─── Dark Mode Toggle ──────────────────────────────────────────────────────
 (function initTheme() {
   const saved = localStorage.getItem('theme');
