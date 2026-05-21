@@ -45,6 +45,31 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
   localStorage.setItem('theme', next);
 });
 
+// ─── Language Toggle ───────────────────────────────────────────────────────
+function setLanguage(language) {
+  const html = document.documentElement;
+  html.setAttribute('data-language', language);
+  html.lang = language === 'zh' ? 'zh-CN' : 'en';
+  localStorage.setItem('language', language);
+  document.dispatchEvent(new CustomEvent('languagechange', { detail: language }));
+}
+
+(function initLanguage() {
+  const saved = localStorage.getItem('language');
+  setLanguage(saved === 'zh' ? 'zh' : 'en');
+
+  const toggles = document.querySelectorAll('.language-toggle');
+  if (!toggles.length) return;
+
+  toggles.forEach((toggle) => {
+    toggle.addEventListener('click', () => {
+      const html = document.documentElement;
+      const next = html.getAttribute('data-language') === 'zh' ? 'en' : 'zh';
+      setLanguage(next);
+    });
+  });
+})();
+
 // ─── Particle System ───────────────────────────────────────────────────────
 (function initParticles() {
   const canvas = document.getElementById('particles');
@@ -125,14 +150,36 @@ document.querySelector('.theme-toggle').addEventListener('click', () => {
 (function initTyping() {
   const el = document.getElementById('typed-text');
   if (!el) return;
-  const roles = [
-    'Software Engineer',
-    'AI & Machine Learning',
-    'Cybersecurity Expert',
-    'Solution Engineer',
-    'Full-Stack Developer',
-  ];
+  const rolesByLanguage = {
+    en: [
+      'Agentic AI Security',
+      'LLM / RAG Systems',
+      'AI Security Researcher',
+      'Cybersecurity Engineer',
+      'Software Engineer',
+      'Solution Engineer',
+      'Full-Stack Builder',
+    ],
+    zh: [
+      '智能体 AI 安全',
+      '大模型 / RAG 系统',
+      'AI 安全研究者',
+      '网络安全工程师',
+      '软件工程师',
+      '解决方案工程师',
+      '全栈构建者',
+    ],
+  };
+  let roles = rolesByLanguage[document.documentElement.getAttribute('data-language') || 'en'];
   let roleIdx = 0, charIdx = 0, deleting = false;
+
+  document.addEventListener('languagechange', (event) => {
+    roles = rolesByLanguage[event.detail] || rolesByLanguage.en;
+    roleIdx = 0;
+    charIdx = 0;
+    deleting = false;
+    el.textContent = '';
+  });
 
   function tick() {
     const current = roles[roleIdx];

@@ -1,777 +1,1879 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-language="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="David 大卫 — Software Engineer | AI & Machine Learning | Cybersecurity | New Energy & EV Charging Solutions">
-  <title>David 大卫 — Portfolio</title>
+  <title>Dawit Abdisa (Dave) | Portfolio</title>
+  <meta name="description" content="Dawit Abdisa (Dave), MSc Software Engineering candidate focused on LLMs, RAG, agentic systems, and AI security research.">
+  
+  <!-- SEO / Social -->
+  <meta property="og:title" content="Dawit Abdisa (Dave) | Portfolio">
+  <meta property="og:description" content="Software engineer, AI builder, and problem solver: web products, energy systems, LLM applications, and security research. Currently researching AI security.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0f172a">
+  
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260419-7">
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #38bdf8;
+      --card: #1e293b;
+      --border: #334155;
+    }
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+      --accent: #0284c7;
+      --card: #f1f5f9;
+      --border: #e2e8f0;
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Unified bilingual system: one rule, zero exceptions */
+    [data-language="en"] [data-lang="zh"] { display: none !important; }
+    [data-language="zh"] [data-lang="en"] { display: none !important; }
+
+    /* Accessibility */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: 8px 16px;
+      z-index: 10000;
+      transition: top 0.2s;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .skip-link:focus { top: 0; }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Particles canvas */
+    #particles {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    /* Layout */
+    main { position: relative; z-index: 1; }
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 80px 0; }
+    .section-alt { background: rgba(255,255,255,0.02); }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      background: rgba(15,23,42,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+    }
+    [data-theme="light"] nav { background: rgba(255,255,255,0.85); }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+      padding: 0;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.25rem; cursor: pointer; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .btn:hover { transform: translateY(-2px); opacity: 0.92; }
+
+    /* Hero */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+    }
+    .hero-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--accent);
+      margin: 0 auto 24px;
+    }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .hero-greeting { color: var(--muted); font-size: 1.1rem; margin-bottom: 8px; }
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.1;
+    }
+    .hero-tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-bottom: 16px;
+      min-height: 1.5em;
+    }
+    .typed-cursor { animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero-lead { max-width: 640px; color: var(--muted); margin: 0 auto 32px; }
+    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-metrics {
+      display: flex;
+      gap: 40px;
+      margin-top: 48px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .hero-metric { text-align: center; }
+    .hero-metric-label {
+      display: block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .hero-metric strong { font-size: 1rem; color: var(--text); }
+
+    /* Section titles */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      margin-bottom: 48px;
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .section-number {
+      color: var(--accent);
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .about-text p { margin-bottom: 16px; color: var(--muted); }
+    .about-facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .fact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+    }
+    .fact-number { display: block; font-size: 2rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    .fact-label { font-size: 0.85rem; color: var(--muted); }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 48px;
+    }
+    .skill-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .skill-icon { font-size: 1.5rem; margin-bottom: 12px; }
+    .skill-card h3 { margin-bottom: 12px; font-size: 1.1rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .skill-tags span {
+      background: rgba(56,189,248,0.1);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Marquee: populated by JS to avoid HTML bloat */
+    .tech-marquee {
+      overflow: hidden;
+      white-space: nowrap;
+      position: relative;
+      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    }
+    .marquee-track {
+      display: inline-flex;
+      gap: 24px;
+      animation: marquee 35s linear infinite;
+      will-change: transform;
+    }
+    .marquee-track span {
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Timeline */
+    .timeline { position: relative; padding-left: 24px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+    .timeline-item { position: relative; margin-bottom: 40px; padding-left: 24px; }
+    .timeline-dot {
+      position: absolute;
+      left: -29px; top: 4px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+    }
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .timeline-header h3 { font-size: 1.1rem; }
+    .timeline-date { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
+    .timeline-subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; }
+    .timeline-content ul { list-style: none; padding: 0; }
+    .timeline-content li {
+      margin-bottom: 12px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+    }
+    .timeline-content li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
+    .timeline-content a { color: var(--accent); }
+
+    /* Projects */
+    .project-filters {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
+    .project-card.hidden { display: none; }
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .project-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .project-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
+    .project-links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; margin-right: 16px; }
+    .project-links a:hover { text-decoration: underline; }
+
+    /* CVs */
+    .cv-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .cv-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .cv-card-primary { border-color: var(--accent); }
+    .cv-badge {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .cv-card h3 { margin-bottom: 8px; }
+    .cv-card > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
+    .cv-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .cv-tags span {
+      background: rgba(56,189,248,0.1);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+    }
+    .cv-links a { color: var(--accent); text-decoration: none; font-weight: 500; }
+
+    /* Education */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+    .edu-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+    }
+    .edu-highlight { border-color: var(--accent); }
+    .edu-year { font-size: 0.8rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; }
+    .edu-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .gpa { color: var(--muted); font-size: 0.9rem; font-weight: 400; margin-left: 4px; }
+    .edu-school { color: var(--muted); font-size: 0.9rem; }
+
+    /* Certs */
+    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+    .cert-item { display: flex; gap: 16px; align-items: flex-start; }
+    .cert-icon { font-size: 1.5rem; line-height: 1; }
+    .cert-item strong { display: block; margin-bottom: 4px; }
+    .cert-item p { color: var(--muted); font-size: 0.85rem; }
+    .cert-sub-title { margin: 32px 0 16px; font-size: 1.1rem; }
+    .cert-badges { display: flex; flex-wrap: wrap; gap: 12px; }
+    .cert-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.85rem;
+      transition: border-color 0.2s;
+    }
+    .cert-badge:hover { border-color: var(--accent); }
+
+    /* Awards */
+    .awards-list { display: grid; gap: 16px; }
+    .award-item {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 16px 24px;
+      border-radius: 8px;
+    }
+    .award-icon { font-size: 1.25rem; line-height: 1; }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .contact-card[role="button"] { cursor: pointer; }
+    .contact-icon { font-size: 1.5rem; display: block; margin-bottom: 8px; line-height: 1; }
+    .contact-card strong { display: block; margin-bottom: 4px; }
+    .contact-card p { color: var(--muted); font-size: 0.85rem; word-break: break-all; }
+
+    /* Footer */
+    footer { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
+    .footer-tagline { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+    .footer-socials { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; }
+    .footer-socials a, .footer-socials .social-static {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s, border-color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+    }
+    .footer-socials a:hover { color: var(--accent); border-color: var(--accent); }
+    .footer-socials svg { width: 18px; height: 18px; fill: currentColor; }
+    .footer-copy { color: var(--muted); font-size: 0.8rem; }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px; right: 24px;
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s;
+      z-index: 50;
+      font-size: 1.25rem;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { transform: translateY(-2px); border-color: var(--accent); }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--card);
+        flex-direction: column;
+        padding: 16px 24px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: block; }
+      .about-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 2rem; }
+      .section { padding: 60px 0; }
+      .timeline-header { flex-direction: column; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dawit Abdisa (Dave)",
+    "jobTitle": "Software Engineer",
+    "url": "https://yourdomain.com/",
+    "sameAs": [
+      "https://linkedin.com/in/dawit-abdisa-44915518a",
+      "https://github.com/Helloworldceo"
+    ],
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of Science and Technology of China" },
+      { "@type": "CollegeOrUniversity", "name": "Changzhou University" }
+    ]
+  }
+  </script>
 </head>
 <body>
 
-<!-- ═══ PARTICLES CANVAS ═══ -->
-<canvas id="particles"></canvas>
+  <a href="#main-content" class="skip-link">
+    <span data-lang="en">Skip to content</span>
+    <span data-lang="zh">跳转到内容</span>
+  </a>
 
-<!-- ═══ NAVIGATION ═══ -->
-<nav id="navbar">
-  <div class="nav-container">
-    <a href="#hero" class="nav-logo">D<span>avid</span></a>
-    <div class="nav-right">
-      <div class="header-socials" aria-label="Social links">
-        <a href="https://github.com/Helloworldceo" target="_blank" rel="noopener" class="header-social" aria-label="GitHub">⌘</a>
-        <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" class="header-social" aria-label="LinkedIn">in</a>
-        <a href="mailto:davidabdisa40@gmail.com" class="header-social" aria-label="Email">✉</a>
-        <span class="header-social header-social-static" aria-label="WeChat">微</span>
+  <canvas id="particles" role="img" aria-label="Animated particle background"></canvas>
+
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">D<span>ave</span></a>
+      <div class="nav-right">
+        <button class="language-toggle" aria-label="Toggle language" title="Toggle language" onclick="toggleLanguage()">
+          <span data-lang="en">EN</span>
+          <span data-lang="zh">中文</span>
+        </button>
+        <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="toggleTheme()">
+          <span data-lang="en">☀️</span>
+          <span data-lang="zh">☀️</span>
+        </button>
+        <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleNav()">☰</button>
       </div>
-      <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
-        <span class="theme-icon-light">☀️</span>
-        <span class="theme-icon-dark">🌙</span>
-      </button>
-      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+      <ul class="nav-links" id="nav-menu" role="menubar">
+        <li role="none"><a href="#about" role="menuitem"><span data-lang="en">About</span><span data-lang="zh">关于我</span></a></li>
+        <li role="none"><a href="#skills" role="menuitem"><span data-lang="en">Skills</span><span data-lang="zh">技能</span></a></li>
+        <li role="none"><a href="#experience" role="menuitem"><span data-lang="en">Experience</span><span data-lang="zh">工作经历</span></a></li>
+        <li role="none"><a href="#projects" role="menuitem"><span data-lang="en">Projects</span><span data-lang="zh">项目</span></a></li>
+        <li role="none"><a href="#cvs" role="menuitem"><span data-lang="en">CVs</span><span data-lang="zh">简历</span></a></li>
+        <li role="none"><a href="#education" role="menuitem"><span data-lang="en">Education</span><span data-lang="zh">教育</span></a></li>
+        <li role="none"><a href="#certifications" role="menuitem"><span data-lang="en">Certs</span><span data-lang="zh">证书</span></a></li>
+        <li role="none"><a href="#awards" role="menuitem"><span data-lang="en">Awards</span><span data-lang="zh">荣誉</span></a></li>
+        <li role="none"><a href="#contact" role="menuitem"><span data-lang="en">Contact</span><span data-lang="zh">联系</span></a></li>
+      </ul>
     </div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#cvs">CVs</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#certifications">Certs</a></li>
-      <li><a href="#awards">Awards</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+  </nav>
 
-<!-- ═══ HERO ═══ -->
-<section id="hero">
-  <div class="hero-content">
-    <div class="hero-photo">
-      <img src="photo.jpg?v=20260419-5" alt="David 大卫 professional portrait">
-    </div>
-    <p class="hero-greeting">Hello, I'm</p>
-    <h1 class="hero-name">David <span class="chinese">大卫</span></h1>
-    <p class="hero-tagline">
-      <span id="typed-text"></span><span class="typed-cursor">|</span>
-    </p>
-    <p class="hero-lead">Software engineer focused on AI, cybersecurity, full-stack development, and smart energy systems. I build practical digital products that connect solid engineering with real business and user needs.</p>
-    <p class="hero-tagline-cn">软件工程师，专注于人工智能、网络安全、全栈开发与智慧能源系统，致力于打造兼顾工程质量与实际业务价值的数字产品。</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary">View My Work</a>
-      <a href="#contact" class="btn btn-outline">Get In Touch</a>
-      <a href="David_大卫_CV.pdf" download="David_大卫_CV.pdf" class="btn btn-download">⬇ Download Software CV</a>
-      <a href="David-CV.pdf" download="David-CV.pdf" class="btn btn-download">⬇ Download New Energy Solution Engineer CV</a>
-    </div>
-    <div class="hero-metrics">
-      <div class="hero-metric">
-        <span class="hero-metric-label">Focus</span>
-        <strong>AI • Web • Energy</strong>
-      </div>
-      <div class="hero-metric">
-        <span class="hero-metric-label">Strength</span>
-        <strong>Build + Communicate</strong>
-      </div>
-      <div class="hero-metric">
-        <span class="hero-metric-label">Scope</span>
-        <strong>China to Global</strong>
-      </div>
-    </div>
-  </div>
-  <div class="scroll-indicator">
-    <div class="mouse">
-      <div class="mouse-wheel"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ ABOUT ═══ -->
-<section id="about" class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">01 — About</span>About Me <span class="cn">关于我</span></h2>
-    <div class="about-grid">
-      <div class="about-text">
-        <p class="about-intro">I build software that is useful in the real world: products shaped by engineering discipline, practical constraints, and clear communication across cultures and teams.</p>
-        <p>I am a software engineer with a Master's in Software Engineering at USTC and hands-on experience across AI, cybersecurity, full-stack web development, and new energy solutions. My work sits at the intersection of engineering, product thinking, and international communication.</p>
-        <p class="about-cn">我是一名软件工程师，目前在中国科学技术大学攻读软件工程硕士，具备人工智能、网络安全、全栈开发与新能源解决方案的实践经验。我的工作融合了工程实现、产品思维与国际化沟通能力。</p>
-      </div>
-      <div class="about-facts">
-        <div class="fact-card">
-          <span class="fact-number">25+</span>
-          <span class="fact-label">Academic Honors<br>学术荣誉</span>
+  <main id="main-content">
+    <!-- Hero -->
+    <section id="hero">
+      <div class="hero-content">
+        <div class="hero-photo">
+          <img src="CV.jpg" alt="Dawit Abdisa (Dave) professional portrait" width="140" height="140" loading="eager">
         </div>
-        <div class="fact-card">
-          <span class="fact-number">9+</span>
-          <span class="fact-label">Years Freelancing<br>自由职业经验</span>
+        <p class="hero-greeting">
+          <span data-lang="en">Hello, I'm</span>
+          <span data-lang="zh">你好，我是</span>
+        </p>
+        <h1 class="hero-name">
+          <span data-lang="en">Dawit Abdisa (Dave)</span>
+          <span data-lang="zh">大卫</span>
+        </h1>
+        <p class="hero-tagline">
+          <span id="typed-text">Software Engineer & AI Researcher</span><span class="typed-cursor" aria-hidden="true">|</span>
+        </p>
+        <p class="hero-lead">
+          <span data-lang="en">I'm Dave, a software engineer, AI builder, and problem solver: web products, energy systems, LLM applications, and security research. I like making things that actually work, whether that's a client-facing web app, an agentic AI pipeline, or a tool that tests how easily a language model can be tricked. The common thread isn't the domain; it's the itch to understand how something works and then push it further. I'm currently doing research in AI security, and always looking for the next interesting problem.</span>
+          <span data-lang="zh">我是 Dave，软件工程师、AI 构建者和问题解决者：Web 产品、能源系统、大模型应用与安全研究。我喜欢做真正能用的东西，无论是面向用户的 Web 应用、智能体 AI 流水线，还是测试语言模型有多容易被欺骗的工具。贯穿始终的不是领域，而是那种想搞清楚某件事如何运作、然后把它再推进一步的冲动。目前我在做 AI 安全方向的研究，也一直在寻找下一个有趣的问题。</span>
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">
+            <span data-lang="en">View My Work</span>
+            <span data-lang="zh">查看作品</span>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            <span data-lang="en">Get In Touch</span>
+            <span data-lang="zh">联系我</span>
+          </a>
         </div>
-        <div class="fact-card">
-          <span class="fact-number">5</span>
-          <span class="fact-label">Languages<br>语言能力</span>
-        </div>
-        <div class="fact-card">
-          <span class="fact-number">USTC</span>
-          <span class="fact-label">Master's Degree<br>硕士学位</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ SKILLS ═══ -->
-<section id="skills" class="section section-alt">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">02 — Skills</span>Skills <span class="cn">技能</span></h2>
-    <div class="skills-grid">
-      <div class="skill-card">
-        <div class="skill-icon">💻</div>
-        <h3>Programming 编程</h3>
-        <div class="skill-tags">
-          <span>Python</span><span>Java</span><span>JavaScript</span>
-          <span>C/C++</span><span>SQL</span><span>HTML/CSS</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🤖</div>
-        <h3>AI / ML 人工智能</h3>
-        <div class="skill-tags">
-          <span>Deep Learning</span><span>SVM</span><span>Transformer</span>
-          <span>GPT / BERT</span><span>Generative AI</span><span>RAG</span>
-          <span>LangChain</span><span>LangGraph</span><span>Agents</span>
-          <span>ChromaDB</span><span>LangSmith</span><span>RAGAS</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🔒</div>
-        <h3>Cybersecurity 网络安全</h3>
-        <div class="skill-tags">
-          <span>CSRF</span><span>XSS</span><span>SQL Injection</span>
-          <span>IDOR</span><span>SSL/TLS</span><span>PKI</span>
-          <span>Penetration Testing</span><span>Prompt Injection</span><span>Scapy</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🌐</div>
-        <h3>Software Dev 软件开发</h3>
-        <div class="skill-tags">
-          <span>React</span><span>Node.js</span><span>Angular</span>
-          <span>REST APIs</span><span>Streamlit</span><span>FastAPI</span>
-          <span>Docker</span><span>Git</span><span>Linux</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">⚡</div>
-        <h3>Energy 能源</h3>
-        <div class="skill-tags">
-          <span>EV Charging</span><span>ESS</span><span>Microgrids</span>
-          <span>PV / Solar</span><span>Edge Computing</span><span>Cloud Platforms</span>
-        </div>
-      </div>
-
-      <div class="skill-card">
-        <div class="skill-icon">🗣️</div>
-        <h3>Languages 语言</h3>
-        <div class="skill-tags">
-          <span>English (Fluent)</span><span>Amharic (Native)</span><span>Afaan Oromo (Native)</span>
-          <span>Chinese (HSK 4)</span><span>French (B1)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="tech-marquee">
-      <div class="marquee-track">
-        <span>Python</span><span>·</span>
-        <span>JavaScript</span><span>·</span>
-        <span>TypeScript</span><span>·</span>
-        <span>React</span><span>·</span>
-        <span>Next.js</span><span>·</span>
-        <span>Node.js</span><span>·</span>
-        <span>Docker</span><span>·</span>
-        <span>PostgreSQL</span><span>·</span>
-        <span>TensorFlow</span><span>·</span>
-        <span>PyTorch</span><span>·</span>
-        <span>Git</span><span>·</span>
-        <span>Linux</span><span>·</span>
-        <span>Angular</span><span>·</span>
-        <span>REST APIs</span><span>·</span>
-        <span>EV Charging</span><span>·</span>
-        <span>ESS</span><span>·</span>
-        <span>Microgrids</span><span>·</span>
-        <span>LangChain</span><span>·</span>
-        <span>LangGraph</span><span>·</span>
-        <span>RAG</span><span>·</span>
-        <span>ChromaDB</span><span>·</span>
-        <span>LangSmith</span><span>·</span>
-        <span>Streamlit</span><span>·</span>
-        <span>Scapy</span><span>·</span>
-        <span>Prompt Injection</span><span>·</span>
-        <!-- duplicate for seamless loop -->
-        <span>Python</span><span>·</span>
-        <span>JavaScript</span><span>·</span>
-        <span>TypeScript</span><span>·</span>
-        <span>React</span><span>·</span>
-        <span>Next.js</span><span>·</span>
-        <span>Node.js</span><span>·</span>
-        <span>Docker</span><span>·</span>
-        <span>PostgreSQL</span><span>·</span>
-        <span>TensorFlow</span><span>·</span>
-        <span>PyTorch</span><span>·</span>
-        <span>Git</span><span>·</span>
-        <span>Linux</span><span>·</span>
-        <span>Angular</span><span>·</span>
-        <span>REST APIs</span><span>·</span>
-        <span>EV Charging</span><span>·</span>
-        <span>ESS</span><span>·</span>
-        <span>Microgrids</span><span>·</span>
-        <span>LangChain</span><span>·</span>
-        <span>LangGraph</span><span>·</span>
-        <span>RAG</span><span>·</span>
-        <span>ChromaDB</span><span>·</span>
-        <span>LangSmith</span><span>·</span>
-        <span>Streamlit</span><span>·</span>
-        <span>Scapy</span><span>·</span>
-        <span>Prompt Injection</span><span>·</span>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ EXPERIENCE ═══ -->
-<section id="experience" class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">03 — Experience</span>Experience <span class="cn">工作经验</span></h2>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Solution Engineer — New Energy & EV Charging</h3>
-            <span class="timeline-date">2025 – Present</span>
+        <div class="hero-metrics">
+          <div class="hero-metric">
+            <span class="hero-metric-label">
+              <span data-lang="en">Focus</span>
+              <span data-lang="zh">方向</span>
+            </span>
+            <strong>
+              <span data-lang="en">LLMs • RAG • Agents</span>
+              <span data-lang="zh">大模型 • RAG • 智能体</span>
+            </strong>
           </div>
-          <p class="timeline-subtitle">解决方案工程师 — 新能源与电动汽车充电</p>
-          <ul>
-            <li>Specialized in international pre-sales technical support for new energy and EV charging solutions</li>
-            <li>Responsible for overseas business trips, product introduction, on-site inspections, and customized solutions</li>
-            <li>Scope: on-grid/off-grid, AC/DC chargers, ESS, microgrids, PV, wind, VPP, edge computing, cloud platforms</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Freelance Full-Stack Developer & Tutor</h3>
-            <span class="timeline-date">2017 – 2023</span>
+          <div class="hero-metric">
+            <span class="hero-metric-label">
+              <span data-lang="en">Strength</span>
+              <span data-lang="zh">优势</span>
+            </span>
+            <strong>
+              <span data-lang="en">Build + Evaluate</span>
+              <span data-lang="zh">构建 + 评估</span>
+            </strong>
           </div>
-          <p class="timeline-subtitle">自由职业者：全栈开发、网络、教师</p>
-          <ul>
-            <li>Developed and launched websites including <a href="https://ethiopianweb.net" target="_blank" rel="noopener">ethiopianweb.net</a></li>
-            <li>Offered IT tutoring and consultation for clients and students</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Teaching Assistant — Changzhou University</h3>
-            <span class="timeline-date">2020 – 2023</span>
+          <div class="hero-metric">
+            <span class="hero-metric-label">
+              <span data-lang="en">Scope</span>
+              <span data-lang="zh">特点</span>
+            </span>
+            <strong>
+              <span data-lang="en">Security-Minded</span>
+              <span data-lang="zh">安全导向</span>
+            </strong>
           </div>
-          <p class="timeline-subtitle">助教，国际学生办公室 — 常州大学</p>
-          <ul>
-            <li>Facilitated translation and communication between foreign and Chinese teaching staff</li>
-            <li>Participated in international student recruitment and event planning</li>
-          </ul>
         </div>
       </div>
+    </section>
 
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>Social Media Advertising</h3>
-            <span class="timeline-date">2014 – Present</span>
+    <!-- About -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">01.</span>
+          <span data-lang="en">About Me</span>
+          <span data-lang="zh">关于我</span>
+        </h2>
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-lang="en">I like building systems that do more than demo well. I build software, AI products, and intelligent workflows that solve messy real-world problems and help businesses operate, grow, and adapt with confidence.</p>
+            <p data-lang="en">My background spans software engineering, LLM applications, RAG pipelines, agentic systems, cybersecurity, and product delivery across international teams. I am currently pursuing an MSc in Software Engineering at USTC, and I care most about work that connects strong engineering with clear human value.</p>
+            <p data-lang="zh">我喜欢构建不只是演示效果好的系统。我构建软件、AI 产品和智能工作流，用它们解决真实而复杂的问题，帮助企业更自信地运营、成长并适应变化。</p>
+            <p data-lang="zh">我的背景涵盖软件工程、大语言模型应用、RAG 流程、智能体系统、网络安全以及跨国际团队的产品交付。目前在中国科学技术大学攻读软件工程硕士学位，最关注能够将扎实工程能力与清晰人文价值相结合的工作。</p>
           </div>
-          <p class="timeline-subtitle">社交媒体广告推广</p>
-          <ul>
-            <li>Promoted content via Facebook, Instagram, X, WeChat, Telegram, TikTok, and more</li>
-          </ul>
+          <div class="about-facts">
+            <div class="fact-card">
+              <span class="fact-number">25+</span>
+              <span class="fact-label">
+                <span data-lang="en">Academic Honors</span>
+                <span data-lang="zh">学术荣誉</span>
+              </span>
+            </div>
+            <div class="fact-card">
+              <span class="fact-number">15+</span>
+              <span class="fact-label">
+                <span data-lang="en">Delivered Projects</span>
+                <span data-lang="zh">已交付项目</span>
+              </span>
+            </div>
+            <div class="fact-card">
+              <span class="fact-number">5</span>
+              <span class="fact-label">
+                <span data-lang="en">Languages</span>
+                <span data-lang="zh">语言能力</span>
+              </span>
+            </div>
+            <div class="fact-card">
+              <span class="fact-number">USTC</span>
+              <span class="fact-label">
+                <span data-lang="en">Master's Degree</span>
+                <span data-lang="zh">硕士学位</span>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
+    </section>
 
+    <!-- Skills -->
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">02.</span>
+          <span data-lang="en">Skills</span>
+          <span data-lang="zh">技能</span>
+        </h2>
+        <div class="skills-grid">
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">💻</div>
+            <h3><span data-lang="en">Programming</span><span data-lang="zh">编程</span></h3>
+            <div class="skill-tags">
+              <span>Python</span><span>Java</span><span>JavaScript</span>
+              <span>C/C++</span><span>SQL</span><span>HTML/CSS</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🤖</div>
+            <h3><span data-lang="en">AI / ML</span><span data-lang="zh">人工智能</span></h3>
+            <div class="skill-tags">
+              <span data-lang="en">Deep Learning</span><span data-lang="zh">深度学习</span>
+              <span>SVM</span>
+              <span data-lang="en">Transformer</span><span data-lang="zh">Transformer 架构</span>
+              <span>GPT / BERT</span>
+              <span data-lang="en">Generative AI</span><span data-lang="zh">生成式 AI</span>
+              <span>RAG</span><span>LangChain</span><span>LangGraph</span>
+              <span data-lang="en">Agents</span><span data-lang="zh">智能体</span>
+              <span>ChromaDB</span><span>LangSmith</span><span>RAGAS</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🔒</div>
+            <h3><span data-lang="en">Cybersecurity</span><span data-lang="zh">网络安全</span></h3>
+            <div class="skill-tags">
+              <span>CSRF</span><span>XSS</span>
+              <span data-lang="en">SQL Injection</span><span data-lang="zh">SQL 注入</span>
+              <span>IDOR</span><span>SSL/TLS</span><span>PKI</span>
+              <span data-lang="en">Penetration Testing</span><span data-lang="zh">渗透测试</span>
+              <span data-lang="en">Prompt Injection</span><span data-lang="zh">提示词注入</span>
+              <span>Scapy</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🌐</div>
+            <h3><span data-lang="en">Software Dev</span><span data-lang="zh">软件开发</span></h3>
+            <div class="skill-tags">
+              <span>React</span><span>Node.js</span><span>Angular</span>
+              <span data-lang="en">REST APIs</span><span data-lang="zh">REST 接口</span>
+              <span>Streamlit</span><span>FastAPI</span>
+              <span>Docker</span><span>Git</span><span>Linux</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">⚡</div>
+            <h3><span data-lang="en">Energy</span><span data-lang="zh">能源</span></h3>
+            <div class="skill-tags">
+              <span data-lang="en">EV Charging</span><span data-lang="zh">电动汽车充电</span>
+              <span>ESS</span>
+              <span data-lang="en">Microgrids</span><span data-lang="zh">微电网</span>
+              <span data-lang="en">PV / Solar</span><span data-lang="zh">光伏 / 太阳能</span>
+              <span data-lang="en">Edge Computing</span><span data-lang="zh">边缘计算</span>
+              <span data-lang="en">Cloud Platforms</span><span data-lang="zh">云平台</span>
+            </div>
+          </div>
+          <div class="skill-card">
+            <div class="skill-icon" aria-hidden="true">🗣️</div>
+            <h3><span data-lang="en">Languages</span><span data-lang="zh">语言</span></h3>
+            <div class="skill-tags">
+              <span data-lang="en">English (Fluent)</span><span data-lang="zh">英语（流利）</span>
+              <span data-lang="en">Amharic (Native)</span><span data-lang="zh">阿姆哈拉语（母语）</span>
+              <span data-lang="en">Afaan Oromo (Native)</span><span data-lang="zh">奥罗莫语（母语）</span>
+              <span data-lang="en">Chinese (HSK 4)</span><span data-lang="zh">中文（HSK 4）</span>
+              <span data-lang="en">French (B1)</span><span data-lang="zh">法语（B1）</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="tech-marquee" aria-hidden="true">
+          <div class="marquee-track" id="marqueeTrack"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">03.</span>
+          <span data-lang="en">Experience</span>
+          <span data-lang="zh">工作经验</span>
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>
+                  <span data-lang="en">Solution Engineer, New Energy & EV Charging</span>
+                  <span data-lang="zh">解决方案工程师，新能源与电动汽车充电</span>
+                </h3>
+                <span class="timeline-date">2025 – Present</span>
+              </div>
+              <p class="timeline-subtitle">
+                <span data-lang="en">Wanbang Digital Energy Co., Ltd.</span>
+                <span data-lang="zh">万帮数字能源股份有限公司</span>
+              </p>
+              <ul>
+                <li>
+                  <span data-lang="en">Specialized in international pre-sales technical support for new energy and EV charging solutions.</span>
+                  <span data-lang="zh">专注于新能源与电动汽车充电方案的国际售前技术支持。</span>
+                </li>
+                <li>
+                  <span data-lang="en">Responsible for overseas business trips, product introduction, on-site inspections, and customized solutions.</span>
+                  <span data-lang="zh">负责海外出差、产品介绍、现场勘察与定制化方案设计。</span>
+                </li>
+                <li>
+                  <span data-lang="en">Scope: on-grid/off-grid, AC/DC chargers, ESS, microgrids, PV, wind, VPP, edge computing, cloud platforms.</span>
+                  <span data-lang="zh">覆盖并网与离网、交直流充电桩、储能系统、微电网、光伏、风电、虚拟电厂、边缘计算与云平台。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>
+                  <span data-lang="en">Freelance Full-Stack Developer & Tutor</span>
+                  <span data-lang="zh">自由职业全栈开发者与讲师</span>
+                </h3>
+                <span class="timeline-date">2017 – 2023</span>
+              </div>
+              <p class="timeline-subtitle">
+                <span data-lang="en">Full-Stack Development, Networking & Teaching</span>
+                <span data-lang="zh">全栈开发、网络与教学</span>
+              </p>
+              <ul>
+                <li>
+                  <span data-lang="en">Developed and launched websites including </span>
+                  <span data-lang="zh">开发并上线多个网站项目，包括 </span>
+                  <a href="https://ethioweb.net" target="_blank" rel="noopener">ethioweb.net</a>
+                  <span data-lang="en"> and </span>
+                  <span data-lang="zh"> 和 </span>
+                  <a href="https://ethiopianweb.net" target="_blank" rel="noopener">ethiopianweb.net</a>.
+                </li>
+                <li>
+                  <span data-lang="en">Offered IT tutoring and consultation for clients and students.</span>
+                  <span data-lang="zh">为客户与学生提供 IT 培训与技术咨询服务。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>
+                  <span data-lang="en">Teaching Assistant, Changzhou University</span>
+                  <span data-lang="zh">助教，常州大学</span>
+                </h3>
+                <span class="timeline-date">2020 – 2023</span>
+              </div>
+              <p class="timeline-subtitle">
+                <span data-lang="en">International Students Office</span>
+                <span data-lang="zh">国际学生办公室</span>
+              </p>
+              <ul>
+                <li>
+                  <span data-lang="en">Facilitated translation and communication between foreign and Chinese teaching staff.</span>
+                  <span data-lang="zh">协助中外教师之间的翻译与沟通协调。</span>
+                </li>
+                <li>
+                  <span data-lang="en">Participated in international student recruitment and event planning.</span>
+                  <span data-lang="zh">参与国际学生招生与活动策划工作。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-header">
+                <h3>
+                  <span data-lang="en">Social Media Advertising</span>
+                  <span data-lang="zh">社交媒体广告推广</span>
+                </h3>
+                <span class="timeline-date">2014 – Present</span>
+              </div>
+              <p class="timeline-subtitle">
+                <span data-lang="en">Digital Marketing & Content Promotion</span>
+                <span data-lang="zh">数字营销与内容推广</span>
+              </p>
+              <ul>
+                <li>
+                  <span data-lang="en">Promoted content via Facebook, Instagram, X, WeChat, Telegram, TikTok, and more.</span>
+                  <span data-lang="zh">通过 Facebook、Instagram、X、微信、Telegram、TikTok 等平台进行内容推广。</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">04.</span>
+          <span data-lang="en">Projects</span>
+          <span data-lang="zh">项目经历</span>
+        </h2>
+
+        <div class="project-filters" role="tablist" aria-label="Project categories">
+          <button class="filter-btn active" role="tab" aria-selected="true" onclick="filterProjects('all', this)">
+            <span data-lang="en">All</span>
+            <span data-lang="zh">全部</span>
+          </button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterProjects('ai', this)">
+            <span data-lang="en">AI & Software</span>
+            <span data-lang="zh">AI 与软件</span>
+          </button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterProjects('security', this)">
+            <span data-lang="en">Security</span>
+            <span data-lang="zh">安全</span>
+          </button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterProjects('energy', this)">
+            <span data-lang="en">Energy</span>
+            <span data-lang="zh">能源</span>
+          </button>
+          <button class="filter-btn" role="tab" aria-selected="false" onclick="filterProjects('web', this)">
+            <span data-lang="en">Web & Other</span>
+            <span data-lang="zh">网站及其他</span>
+          </button>
+        </div>
+
+        <div class="projects-grid">
+          <!-- AI / Software -->
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">Research</span>
+              <span data-lang="zh">研究项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Master's Thesis Project</span>
+              <span data-lang="zh">硕士论文项目</span>
+            </h3>
+            <p data-lang="en">Developed an AI-driven decision-support system for PV and battery energy storage feasibility analysis, combining multi-agent workflow orchestration, geospatial and solar resource assessment, scenario-based system sizing, financial modeling, and automated reporting.</p>
+            <p data-lang="zh">开发了一个面向光伏与电池储能可行性分析的 AI 决策支持系统，整合多智能体工作流编排、地理与太阳能资源评估、情景化系统配置、财务建模与自动化报告生成。</p>
+          </div>
+
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">AI Engineering</span>
+              <span data-lang="zh">AI 工程</span>
+            </div>
+            <h3>
+              <span data-lang="en">RAG Assistant</span>
+              <span data-lang="zh">RAG 助手</span>
+            </h3>
+            <p data-lang="en">Conversational RAG assistant: upload PDFs, TXT, or Markdown and ask questions grounded in your documents, with source citations and chat memory. Built with DeepSeek, LangChain LCEL, ChromaDB, and Streamlit. Includes RAGAS evaluation harness and LangSmith tracing.</p>
+            <p data-lang="zh">对话式 RAG 助手，支持上传 PDF、TXT 或 Markdown 文档并基于内容进行问答，提供来源引用与会话记忆。基于 DeepSeek、LangChain LCEL、ChromaDB 与 Streamlit 构建，并集成 RAGAS 评估与 LangSmith 链路追踪。</p>
+            <p class="project-links">
+              <a href="https://github.com/helloworldceo/rag-assistant" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">AI Engineering</span>
+              <span data-lang="zh">AI 工程</span>
+            </div>
+            <h3>
+              <span data-lang="en">SQL Analyst</span>
+              <span data-lang="zh">SQL 智能分析助手</span>
+            </h3>
+            <p data-lang="en">Ask questions about your data in plain English; converts natural language to SQL, auto-selects the best chart type, and returns AI-generated bullet-point insights. Blocks mutating queries for safety. Built with DeepSeek, LangChain, Plotly, and Streamlit.</p>
+            <p data-lang="zh">支持使用自然语言查询数据，自动将问题转换为 SQL、选择合适图表，并生成 AI 分析要点。系统会拦截修改型查询以增强安全性。基于 DeepSeek、LangChain、Plotly 与 Streamlit 构建。</p>
+            <p class="project-links">
+              <a href="https://github.com/helloworldceo/sql-data-analyst-assistant" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">AI Engineering</span>
+              <span data-lang="zh">AI 工程</span>
+            </div>
+            <h3>
+              <span data-lang="en">Todo & Email AI Agent</span>
+              <span data-lang="zh">待办与邮件 AI 智能体</span>
+            </h3>
+            <p data-lang="en">Agentic assistant that reads, drafts, and sends emails via Gmail API while managing a to-do list across multi-step reasoning loops. Built with LangGraph, Gmail API, DeepSeek, and Streamlit.</p>
+            <p data-lang="zh">基于智能体的助手，可通过 Gmail API 阅读、起草并发送邮件，同时在多步推理流程中管理待办事项。项目使用 LangGraph、Gmail API、DeepSeek 与 Streamlit 构建。</p>
+            <p class="project-links">
+              <a href="https://github.com/helloworldceo/todo-email-automation-agent" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <!-- Security -->
+          <div class="project-card" data-category="security">
+            <div class="project-badge">
+              <span data-lang="en">AI Security</span>
+              <span data-lang="zh">AI 安全</span>
+            </div>
+            <h3>
+              <span data-lang="en">Prompt Injection Scanner</span>
+              <span data-lang="zh">提示词注入扫描器</span>
+            </h3>
+            <p data-lang="en">CLI tool that tests LLM system prompts against 22 categorized prompt injection payloads using keyword and LLM-judge evaluation modes. Detects jailbreaks, role-play bypasses, and data-extraction attacks.</p>
+            <p data-lang="zh">命令行工具，使用关键词规则与 LLM 评审两种模式，对大模型系统提示词进行 22 类提示词注入载荷测试，可识别越狱、角色扮演绕过与数据提取攻击。</p>
+            <p class="project-links">
+              <a href="https://github.com/helloworldceo/prompt-injection-scanner" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <div class="project-card" data-category="security">
+            <div class="project-badge">
+              <span data-lang="en">Security</span>
+              <span data-lang="zh">安全项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Vulnerable Web App</span>
+              <span data-lang="zh">漏洞教学 Web 应用</span>
+            </h3>
+            <p data-lang="en">Intentionally vulnerable Flask + SQLite web application with 6 documented vulnerabilities (SQLi, Stored XSS, Reflected XSS, IDOR) and a professional security assessment report with PoC exploits and secure fixes.</p>
+            <p data-lang="zh">基于 Flask 与 SQLite 构建的故意脆弱 Web 应用，包含 6 类已文档化漏洞，如 SQL 注入、存储型与反射型 XSS、IDOR，并配套 PoC 利用与安全修复报告。</p>
+            <p class="project-links">
+              <a href="https://github.com/helloworldceo/vuln-web-app" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <div class="project-card" data-category="security">
+            <div class="project-badge">
+              <span data-lang="en">Security</span>
+              <span data-lang="zh">安全项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Network Traffic Analyzer</span>
+              <span data-lang="zh">网络流量分析器</span>
+            </h3>
+            <p data-lang="en">Python CLI tool using Scapy to detect port scans (sliding-window algorithm) and cleartext credential leaks (FTP, Telnet, HTTP Basic Auth, POST bodies) from live interfaces or PCAP files, with colour-coded alerts and JSON reporting.</p>
+            <p data-lang="zh">使用 Scapy 开发的 Python 命令行网络流量分析工具，可从实时网卡或 PCAP 文件中检测端口扫描与明文凭证泄露，并提供彩色告警与 JSON 报告。</p>
+            <p class="project-links">
+              <a href="https://github.com/helloworldceo/network-traffic-analyzer" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <!-- Web -->
+          <div class="project-card" data-category="web">
+            <div class="project-badge">
+              <span data-lang="en">E-Commerce</span>
+              <span data-lang="zh">电商项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">EthioMarket</span>
+              <span data-lang="zh">EthioMarket 电商平台</span>
+            </h3>
+            <p data-lang="en">E-commerce storefront for authentic Ethiopian products, built in both static HTML/CSS/JS and React + Vite versions with shopping, cart, checkout, and blog flows.</p>
+            <p data-lang="zh">面向埃塞俄比亚特色产品的电商平台，提供静态 HTML/CSS/JS 与 React + Vite 两个版本，包含商品浏览、购物车、结账与博客流程。</p>
+            <p class="project-links">
+              <a href="https://ethiomarket.store" target="_blank" rel="noopener">
+                <span data-lang="en">Live →</span>
+                <span data-lang="zh">在线访问 →</span>
+              </a>
+              <a href="https://github.com/Helloworldceo/Ethiomarket" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <div class="project-card" data-category="web">
+            <div class="project-badge">
+              <span data-lang="en">EdTech</span>
+              <span data-lang="zh">教育科技</span>
+            </div>
+            <h3>
+              <span data-lang="en">helloworldEdu</span>
+              <span data-lang="zh">helloworldEdu 学习平台</span>
+            </h3>
+            <p data-lang="en">Learning management platform built with Next.js, TypeScript, Prisma, and PostgreSQL, with course delivery, enrollment, quizzes, certificates, and Vercel deployment support.</p>
+            <p data-lang="zh">基于 Next.js、TypeScript、Prisma 与 PostgreSQL 构建的在线学习管理平台，支持课程发布、报名、测验、证书与 Vercel 部署。</p>
+            <p class="project-links">
+              <a href="https://helloworld-edu-seven.vercel.app/" target="_blank" rel="noopener">
+                <span data-lang="en">Live →</span>
+                <span data-lang="zh">在线访问 →</span>
+              </a>
+              <a href="https://github.com/Helloworldceo/helloworldEdu" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <div class="project-card" data-category="web">
+            <div class="project-badge">
+              <span data-lang="en">Web</span>
+              <span data-lang="zh">网站项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Ethioweb.net / Ethiopianweb.net</span>
+              <span data-lang="zh">Ethioweb.net / Ethiopianweb.net 社区平台</span>
+            </h3>
+            <p data-lang="en">Community-focused web platform for Ethiopians in China, built with TypeScript and Vite-based frontend tooling to share resources, connections, and useful local information.</p>
+            <p data-lang="zh">面向在华埃塞俄比亚人的社区型信息平台，基于 TypeScript 与 Vite 前端工具链开发，用于分享资源、连接人与提供本地实用信息。</p>
+            <p class="project-links">
+              <a href="https://ethioweb.net" target="_blank" rel="noopener">ethioweb.net</a>
+              <a href="https://ethiopianweb.net" target="_blank" rel="noopener">ethiopianweb.net</a>
+              <a href="https://github.com/Helloworldceo/Website" target="_blank" rel="noopener">GitHub →</a>
+            </p>
+          </div>
+
+          <!-- Energy -->
+          <div class="project-card" data-category="energy">
+            <div class="project-badge">
+              <span data-lang="en">Energy</span>
+              <span data-lang="zh">能源项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Midroc Gold Hybrid Microgrid</span>
+              <span data-lang="zh">Midroc Gold 混合微电网</span>
+            </h3>
+            <p data-lang="en">Led system sizing, hybrid optimization, and feasibility analysis for a 7MW PV + 2MW BESS + diesel off-grid microgrid designed to improve reliability and reduce diesel use for mining operations.</p>
+            <p data-lang="zh">负责 7MW 光伏 + 2MW 储能 + 柴油机离网混合微电网的系统选型、混合优化与可行性分析，目标是提升矿区供电可靠性并降低柴油消耗。</p>
+          </div>
+
+          <div class="project-card" data-category="energy">
+            <div class="project-badge">
+              <span data-lang="en">Energy</span>
+              <span data-lang="zh">能源项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Roha Health Center PV-ESS-EV Microgrid</span>
+              <span data-lang="zh">Roha 医疗中心光储充微电网</span>
+            </h3>
+            <p data-lang="en">Designed an 818kWp rooftop PV + 261kWh BESS + EV charging microgrid for a healthcare facility, including backup strategy and grid-tie control logic for critical medical loads.</p>
+            <p data-lang="zh">为医疗机构设计 818kWp 屋顶光伏 + 261kWh 储能 + 电动车充电微电网，涵盖关键医疗负载的备电策略与并网控制逻辑。</p>
+          </div>
+
+          <div class="project-card" data-category="energy">
+            <div class="project-badge">
+              <span data-lang="en">Energy</span>
+              <span data-lang="zh">能源项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">German Square Fast-Charging Station</span>
+              <span data-lang="zh">German Square 商业快充站</span>
+            </h3>
+            <p data-lang="en">Led layout design, power distribution sizing, and grid integration analysis for a 960kW commercial charging station with 8 dual-gun 120kW DC chargers serving 100+ EVs daily.</p>
+            <p data-lang="zh">负责 960kW 商业快充站的布局设计、配电容量计算与并网分析，配置 8 台双枪 120kW 直流充电桩，日服务能力超过 100 辆电动车。</p>
+          </div>
+
+          <div class="project-card" data-category="energy">
+            <div class="project-badge">
+              <span data-lang="en">Energy</span>
+              <span data-lang="zh">能源项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Midroc Hospital PV & BESS Backup</span>
+              <span data-lang="zh">Midroc 医院光伏与储能备电</span>
+            </h3>
+            <p data-lang="en">Designed rooftop PV layout, 10MWh BESS sizing, and backup power control logic to cut grid costs and strengthen resilience for critical hospital operations.</p>
+            <p data-lang="zh">完成医院屋顶光伏布局、10MWh 储能容量配置与备电控制逻辑设计，以降低用电成本并增强关键医疗场景的供电韧性。</p>
+          </div>
+
+          <div class="project-card" data-category="energy">
+            <div class="project-badge">
+              <span data-lang="en">Energy</span>
+              <span data-lang="zh">能源项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Customized PV-BESS Backup Solutions</span>
+              <span data-lang="zh">定制化光储备电方案</span>
+            </h3>
+            <p data-lang="en">Delivered tailored PV-BESS backup systems for bank branches and residential clients through load profiling, system sizing, proposal design, and reliability-focused planning.</p>
+            <p data-lang="zh">通过负载分析、系统配置、方案设计与可靠性规划，为银行网点与住宅客户提供定制化光储备电系统。</p>
+          </div>
+
+          <!-- Other / AI -->
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">AI/ML</span>
+              <span data-lang="zh">AI / 机器学习</span>
+            </div>
+            <h3>
+              <span data-lang="en">SVM-Based Driver Drowsiness Detection</span>
+              <span data-lang="zh">基于 SVM 的驾驶疲劳检测</span>
+            </h3>
+            <p data-lang="en">Built an ML pipeline for classifying drowsy vs. alert states from EEG brain waves. Compared SVM (98%), LSTM (93%), KNN (87%).</p>
+            <p data-lang="zh">构建基于脑电信号的驾驶疲劳识别机器学习流程，对比 SVM、LSTM 与 KNN 模型，其中 SVM 达到 98% 准确率。</p>
+          </div>
+
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">AI/ML</span>
+              <span data-lang="zh">AI / 机器学习</span>
+            </div>
+            <h3>
+              <span data-lang="en">Deep Learning: NanoGPT</span>
+              <span data-lang="zh">深度学习：NanoGPT</span>
+            </h3>
+            <p data-lang="en">NanoGPT training & analysis, Transformer architecture study (GPT, BERT, ELMo).</p>
+            <p data-lang="zh">进行 NanoGPT 训练与分析，并系统学习 Transformer 架构及 GPT、BERT、ELMo 等模型原理。</p>
+          </div>
+
+          <div class="project-card" data-category="security">
+            <div class="project-badge">
+              <span data-lang="en">Security</span>
+              <span data-lang="zh">安全项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Web Security Testing</span>
+              <span data-lang="zh">Web 安全测试</span>
+            </h3>
+            <p data-lang="en">CSRF, XSS, SQL Injection, SSL/TLS penetration testing labs in Docker-based SEED environments.</p>
+            <p data-lang="zh">在基于 Docker 的 SEED 实验环境中完成 CSRF、XSS、SQL 注入与 SSL/TLS 等 Web 安全测试实验。</p>
+          </div>
+
+          <div class="project-card" data-category="web">
+            <div class="project-badge">
+              <span data-lang="en">Web</span>
+              <span data-lang="zh">网站项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Study Abroad Management Website</span>
+              <span data-lang="zh">留学管理网站</span>
+            </h3>
+            <p data-lang="en">Full-stack web application for managing study abroad processes.</p>
+            <p data-lang="zh">用于管理留学申请与流程跟踪的全栈 Web 应用。</p>
+          </div>
+
+          <div class="project-card" data-category="ai">
+            <div class="project-badge">
+              <span data-lang="en">Award</span>
+              <span data-lang="zh">获奖项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Maze Robot</span>
+              <span data-lang="zh">迷宫机器人</span>
+            </h3>
+            <p data-lang="en">Autonomous maze-solving robot with sensor integration. Won 3rd Prize at World Vocational College Skills Competition.</p>
+            <p data-lang="zh">集成传感器的自主迷宫求解机器人项目，获得世界职业院校技能大赛三等奖。</p>
+          </div>
+
+          <div class="project-card" data-category="web">
+            <div class="project-badge">
+              <span data-lang="en">Blockchain</span>
+              <span data-lang="zh">区块链</span>
+            </div>
+            <h3>
+              <span data-lang="en">Blockchain Implementation</span>
+              <span data-lang="zh">区块链实现</span>
+            </h3>
+            <p data-lang="en">Distributed systems and cryptographic security protocols.</p>
+            <p data-lang="zh">围绕分布式系统与密码学安全协议的区块链实现实践。</p>
+          </div>
+
+          <div class="project-card" data-category="web">
+            <div class="project-badge">
+              <span data-lang="en">Web</span>
+              <span data-lang="zh">网站项目</span>
+            </div>
+            <h3>
+              <span data-lang="en">Responsive Web Design Projects</span>
+              <span data-lang="zh">响应式网页设计项目</span>
+            </h3>
+            <p data-lang="en">Modern responsive websites using contemporary frameworks and design patterns.</p>
+            <p data-lang="zh">使用现代框架与设计模式完成多项响应式网站开发项目。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CVs -->
+    <section id="cvs" class="section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">05.</span>
+          <span data-lang="en">CVs</span>
+          <span data-lang="zh">简历版本</span>
+        </h2>
+        <div class="cv-grid">
+          <div class="cv-card cv-card-primary">
+            <div class="cv-badge">
+              <span data-lang="en">PhD Track</span>
+              <span data-lang="zh">博士方向</span>
+            </div>
+            <h3>
+              <span data-lang="en">Agentic AI Security CV</span>
+              <span data-lang="zh">智能体 AI 安全简历</span>
+            </h3>
+            <p data-lang="en">This CV is tailored for PhD applications in agentic AI security, highlighting LLM systems, RAG, autonomous agents, prompt injection testing, and applied cybersecurity projects.</p>
+            <p data-lang="zh">该简历面向智能体 AI 安全方向博士申请，重点展示大模型系统、RAG、自主智能体、提示词注入测试与应用安全项目经历。</p>
+            <div class="cv-tags">
+              <span data-lang="en">Agentic AI Security</span><span data-lang="zh">智能体 AI 安全</span>
+              <span>LLMs</span><span>RAG</span>
+              <span data-lang="en">Applied Security</span><span data-lang="zh">应用安全</span>
+            </div>
+            <p class="cv-links">
+              <a href="David_PhD_Agentic_AI_Security.pdf" target="_blank" rel="noopener">
+                <span data-lang="en">Open PDF →</span>
+                <span data-lang="zh">打开简历 →</span>
+              </a>
+            </p>
+          </div>
+
+          <div class="cv-card cv-card-primary">
+            <div class="cv-badge">
+              <span data-lang="en">Software Track</span>
+              <span data-lang="zh">软件方向</span>
+            </div>
+            <h3>
+              <span data-lang="en">Original CV</span>
+              <span data-lang="zh">软件方向主简历</span>
+            </h3>
+            <p data-lang="en">This is the main software-focused CV for Software Engineer, AI Engineer, Cybersecurity, and Full-Stack roles.</p>
+            <p data-lang="zh">这是面向软件工程师、AI 工程师、网络安全与全栈开发岗位的主简历版本。</p>
+            <div class="cv-tags">
+              <span data-lang="en">Software Engineer</span><span data-lang="zh">软件工程师</span>
+              <span data-lang="en">AI Engineer</span><span data-lang="zh">AI 工程师</span>
+              <span data-lang="en">Cybersecurity</span><span data-lang="zh">网络安全</span>
+              <span data-lang="en">Full-Stack</span><span data-lang="zh">全栈开发</span>
+            </div>
+            <p class="cv-links">
+              <a href="David_大卫_CV.pdf" target="_blank" rel="noopener">
+                <span data-lang="en">Open PDF →</span>
+                <span data-lang="zh">打开简历 →</span>
+              </a>
+            </p>
+          </div>
+
+          <div class="cv-card">
+            <div class="cv-badge">
+              <span data-lang="en">Energy Track</span>
+              <span data-lang="zh">能源方向</span>
+            </div>
+            <h3>
+              <span data-lang="en">Energy Solution CV</span>
+              <span data-lang="zh">能源解决方案简历</span>
+            </h3>
+            <p data-lang="en">This CV is tailored for Energy Solution Engineer roles, highlighting PV-BESS systems, EV charging infrastructure, hybrid microgrids, and international technical solution delivery.</p>
+            <p data-lang="zh">该简历面向能源解决方案工程师岗位，重点突出光储系统、电动汽车充电基础设施、混合微电网与国际技术方案交付经验。</p>
+            <div class="cv-tags">
+              <span data-lang="en">Energy Solution Engineer</span><span data-lang="zh">能源解决方案工程师</span>
+              <span>PV-BESS</span>
+              <span data-lang="en">EV Charging</span><span data-lang="zh">电动汽车充电</span>
+              <span data-lang="en">Microgrids</span><span data-lang="zh">微电网</span>
+            </div>
+            <p class="cv-links">
+              <a href="David-CV.pdf" target="_blank" rel="noopener">
+                <span data-lang="en">Open PDF →</span>
+                <span data-lang="zh">打开简历 →</span>
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">06.</span>
+          <span data-lang="en">Education</span>
+          <span data-lang="zh">教育背景</span>
+        </h2>
+        <div class="edu-grid">
+          <div class="edu-card edu-highlight">
+            <div class="edu-year">2023 – Present</div>
+            <h3>
+              <span data-lang="en">MSc in Software Engineering</span>
+              <span data-lang="zh">软件工程硕士</span>
+            </h3>
+            <p class="edu-school">University of Science and Technology of China (USTC)<br>中国科学技术大学</p>
+          </div>
+          <div class="edu-card edu-highlight">
+            <div class="edu-year">2019 – 2023</div>
+            <h3>
+              <span data-lang="en">BSc in Computer Science</span>
+              <span data-lang="zh">计算机科学学士</span>
+              <span class="gpa">GPA: 4.7/5.0</span>
+            </h3>
+            <p class="edu-school">Changzhou University 常州大学</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-year">2021</div>
+            <h3>
+              <span data-lang="en">Global Summer School: Innovation for SDG</span>
+              <span data-lang="zh">全球暑期学校：可持续发展目标创新</span>
+            </h3>
+            <p class="edu-school">Tsinghua University 清华大学</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-year">2021</div>
+            <h3>
+              <span data-lang="en">Innovation & Entrepreneurship in the Digital Economy</span>
+              <span data-lang="zh">数字经济中的创新与创业</span>
+            </h3>
+            <p class="edu-school">Tsinghua University 清华大学</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-year">2019</div>
+            <h3>
+              <span data-lang="en">Chinese Language Studies</span>
+              <span data-lang="zh">汉语学习</span>
+            </h3>
+            <p class="edu-school">Qingdao University 青岛大学</p>
+          </div>
+          <div class="edu-card">
+            <div class="edu-year">2018</div>
+            <h3>
+              <span data-lang="en">Computer Hardware & Software Maintenance</span>
+              <span data-lang="zh">计算机软硬件维护</span>
+            </h3>
+            <p class="edu-school">EBS Computer Training EBS计算机培训中心</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">07.</span>
+          <span data-lang="en">Certifications</span>
+          <span data-lang="zh">认证证书</span>
+        </h2>
+        <div class="cert-grid">
+          <div class="cert-item">
+            <span class="cert-icon" aria-hidden="true">🏛️</span>
+            <div>
+              <strong>
+                <span data-lang="en">Blockchain & Digital Economy Entrepreneurship (Med AI)</span>
+                <span data-lang="zh">区块链与数字经济创业（医疗 AI）</span>
+              </strong>
+              <p>
+                <span data-lang="en">Tsinghua University, 2021</span>
+                <span data-lang="zh">清华大学，2021年</span>
+              </p>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon" aria-hidden="true">📋</span>
+            <div>
+              <strong>
+                <span data-lang="en">Project Management Certification</span>
+                <span data-lang="zh">项目管理认证</span>
+              </strong>
+              <p>
+                <span data-lang="en">2019 – Present</span>
+                <span data-lang="zh">2019年至今</span>
+              </p>
+            </div>
+          </div>
+          <div class="cert-item">
+            <span class="cert-icon" aria-hidden="true">🗣️</span>
+            <div>
+              <strong>
+                <span data-lang="en">Language Proficiency</span>
+                <span data-lang="zh">语言能力</span>
+              </strong>
+              <p>
+                <span data-lang="en">English · Amharic · Afaan Oromo · HSK 4 Chinese · French B1</span>
+                <span data-lang="zh">英语 · 阿姆哈拉语 · 奥罗莫语 · 汉语水平考试 HSK 4 · 法语 B1</span>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="cert-sub-title">
+          <span data-lang="en">Technical Certificates</span>
+          <span data-lang="zh">技术认证</span>
+        </h3>
+        <div class="cert-badges">
+          <a href="cert-previews/Python%20Developer.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🐍</span>
+            <span data-lang="en">Python Developer</span>
+            <span data-lang="zh">Python 开发者</span>
+          </a>
+          <a href="cert-previews/Introduction%20To%20Python.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🐍</span>
+            <span data-lang="en">Intro to Python</span>
+            <span data-lang="zh">Python 入门</span>
+          </a>
+          <a href="cert-previews/Python%20for%20Beginners.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🐍</span>
+            <span data-lang="en">Python for Beginners</span>
+            <span data-lang="zh">Python 初学者课程</span>
+          </a>
+          <a href="cert-previews/Web%20Developer%20with%20Angular.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🅰️</span>
+            <span data-lang="en">Web Dev with Angular</span>
+            <span data-lang="zh">Angular 网页开发</span>
+          </a>
+          <a href="cert-previews/Introduction%20to%20HTML.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🌐</span>
+            <span data-lang="en">Intro to HTML</span>
+            <span data-lang="zh">HTML 入门</span>
+          </a>
+          <a href="cert-previews/Introduction%20to%20C.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">⚙️</span>
+            <span data-lang="en">Intro to C</span>
+            <span data-lang="zh">C 语言入门</span>
+          </a>
+          <a href="cert-previews/SQL%20Intermediate%20Certificate.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🗄️</span>
+            <span data-lang="en">SQL Intermediate</span>
+            <span data-lang="zh">SQL 中级</span>
+          </a>
+          <a href="cert-previews/Data%20Analysis.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">📊</span>
+            <span data-lang="en">Data Analysis</span>
+            <span data-lang="zh">数据分析</span>
+          </a>
+          <a href="cert-previews/Data%20Analysis%20Fundamentals.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">📊</span>
+            <span data-lang="en">Data Analysis Fundamentals</span>
+            <span data-lang="zh">数据分析基础</span>
+          </a>
+          <a href="cert-previews/Coding%20for%20Data.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">📊</span>
+            <span data-lang="en">Coding for Data</span>
+            <span data-lang="zh">面向数据的编程</span>
+          </a>
+          <a href="cert-previews/Android%20Developer.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">📱</span>
+            <span data-lang="en">Android Developer</span>
+            <span data-lang="zh">Android 开发者</span>
+          </a>
+          <a href="cert-previews/Android%20Developer%20Fundamentals.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">📱</span>
+            <span data-lang="en">Android Dev Fundamentals</span>
+            <span data-lang="zh">Android 开发基础</span>
+          </a>
+          <a href="cert-previews/Programming%20Fundamentals.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">💡</span>
+            <span data-lang="en">Programming Fundamentals</span>
+            <span data-lang="zh">编程基础</span>
+          </a>
+          <a href="cert-previews/Tech%20for%20Everyone.pdf.png" target="_blank" rel="noopener" class="cert-badge">
+            <span aria-hidden="true">🖥️</span>
+            <span data-lang="en">Tech for Everyone</span>
+            <span data-lang="zh">人人都懂技术</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Awards -->
+    <section id="awards" class="section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">08.</span>
+          <span data-lang="en">Honors & Awards</span>
+          <span data-lang="zh">荣誉奖项</span>
+        </h2>
+        <div class="awards-list">
+          <div class="award-item">
+            <span class="award-icon" aria-hidden="true">🏅</span>
+            <div>
+              <strong>
+                <span data-lang="en">China Scholarship Council (CSC) Award</span>
+                <span data-lang="zh">国家留学基金委（CSC）奖学金</span>
+              </strong>
+            </div>
+          </div>
+          <div class="award-item">
+            <span class="award-icon" aria-hidden="true">🥉</span>
+            <div>
+              <strong>
+                <span data-lang="en">3rd Prize, World Vocational College Skills Competition (Maze Robot)</span>
+                <span data-lang="zh">世界职业院校技能大赛三等奖（迷宫机器人）</span>
+              </strong>
+            </div>
+          </div>
+          <div class="award-item">
+            <span class="award-icon" aria-hidden="true">⭐</span>
+            <div>
+              <strong>
+                <span data-lang="en">Outstanding Student Leader, Changzhou University</span>
+                <span data-lang="zh">常州大学杰出学生干部</span>
+              </strong>
+            </div>
+          </div>
+          <div class="award-item">
+            <span class="award-icon" aria-hidden="true">💡</span>
+            <div>
+              <strong>
+                <span data-lang="en">Innovation Recognition, Tsinghua University</span>
+                <span data-lang="zh">清华大学创新表彰</span>
+              </strong>
+            </div>
+          </div>
+          <div class="award-item">
+            <span class="award-icon" aria-hidden="true">📺</span>
+            <div>
+              <strong>
+                <span data-lang="en">Featured on CGTN, CCTV1, China Daily</span>
+                <span data-lang="zh">曾在CGTN、CCTV1、《中国日报》上报道</span>
+              </strong>
+            </div>
+          </div>
+          <div class="award-item">
+            <span class="award-icon" aria-hidden="true">🎓</span>
+            <div>
+              <strong>
+                <span data-lang="en">25+ Academic Honors and Certifications</span>
+                <span data-lang="zh">获得25+项学术荣誉和认证</span>
+              </strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">09.</span>
+          <span data-lang="en">Contact</span>
+          <span data-lang="zh">联系方式</span>
+        </h2>
+        <div class="contact-grid">
+          <a href="mailto:davidabdisa40@gmail.com" class="contact-card">
+            <span class="contact-icon" aria-hidden="true">✉️</span>
+            <strong>
+              <span data-lang="en">Email</span>
+              <span data-lang="zh">邮箱</span>
+            </strong>
+            <p>davidabdisa40@gmail.com</p>
+          </a>
+          <a href="tel:+8613235178205" class="contact-card">
+            <span class="contact-icon" aria-hidden="true">📱</span>
+            <strong>
+              <span data-lang="en">Phone</span>
+              <span data-lang="zh">电话</span>
+            </strong>
+            <p>+86 132-3517-8205</p>
+          </a>
+          <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" class="contact-card">
+            <span class="contact-icon" aria-hidden="true">💼</span>
+            <strong>
+              <span data-lang="en">LinkedIn</span>
+              <span data-lang="zh">领英</span>
+            </strong>
+            <p>dawit-abdisa-44915518a</p>
+          </a>
+          <div class="contact-card" role="button" tabindex="0" aria-label="WeChat ID: Helloworld_Ceo">
+            <span class="contact-icon" aria-hidden="true">💬</span>
+            <strong>
+              <span data-lang="en">WeChat</span>
+              <span data-lang="zh">微信</span>
+            </strong>
+            <p>Helloworld_Ceo</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">Dawit Abdisa (Dave)</div>
+      <p class="footer-tagline">
+        <span data-lang="en">Software engineer building at the intersection of AI, security, and energy.</span>
+        <span data-lang="zh">软件工程师，专注于人工智能、安全与能源交叉领域。</span>
+      </p>
+      <div class="footer-socials">
+        <a href="https://github.com/Helloworldceo" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/helloworldceo/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://x.com/DawitAbdisa1" target="_blank" rel="noopener" aria-label="X (Twitter)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.747l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/helloworldceo" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.792-4.697 4.533-4.697 1.312 0 2.686.236 2.686.236v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.268h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
+        </a>
+        <a href="mailto:davidabdisa40@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <div class="social-static" role="img" aria-label="WeChat: Helloworld_Ceo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor;"><path d="M8.5 14.5c-3.5 0-6.5-2.5-6.5-5.5S5 3.5 8.5 3.5 15 6 15 9s-3 5.5-6.5 5.5zm10.5 1c-2.5 0-4.5-1.5-4.5-3.5s2-3.5 4.5-3.5 4.5 1.5 4.5 3.5-2 3.5-4.5 3.5z"/></svg>
+        </div>
+        <div class="social-static" role="img" aria-label="Discord: helloworldceo" title="Discord: helloworldceo">
+          <svg viewBox="0 0 24 24" aria-hidden="true" style="width:18px;height:18px;fill:currentColor;"><path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+        </div>
+      </div>
+      <p class="footer-copy">
+        <span data-lang="en">© 2026 Dawit Abdisa (Dave). Crafted with intention</span>
+        <span data-lang="zh">© 2026 Dawit Abdisa (Dave)，用心打造</span>
+      </p>
     </div>
-  </div>
-</section>
+  </footer>
 
-<!-- ═══ PROJECTS ═══ -->
-<section id="projects" class="section section-alt">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">04 — Projects</span>Projects <span class="cn">项目经历</span></h2>
-    <div class="projects-grid">
+  <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
 
-      <!-- ── AI Engineering Projects ── -->
-      <div class="project-card project-featured">
-        <div class="project-badge">🤖 AI Engineering</div>
-        <h3>RAG Assistant</h3>
-        <p class="project-cn">文档问答 RAG 助手</p>
-        <p>Conversational RAG assistant — upload PDFs, TXT, or Markdown and ask questions grounded in your documents, with source citations and chat memory. Built with DeepSeek, LangChain LCEL, ChromaDB, and Streamlit. Includes RAGAS evaluation harness and LangSmith tracing.</p>
-        <p class="project-links">
-          <a href="https://github.com/helloworldceo/rag-assistant" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+  <script>
+    // Theme toggle
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🤖 AI Engineering</div>
-        <h3>SQL Analyst</h3>
-        <p class="project-cn">自然语言转 SQL 数据分析工具</p>
-        <p>Ask questions about your data in plain English — converts natural language to SQL, auto-selects the best chart type, and returns AI-generated bullet-point insights. Blocks mutating queries for safety. Built with DeepSeek, LangChain, Plotly, and Streamlit.</p>
-        <p class="project-links">
-          <a href="https://github.com/helloworldceo/sql-data-analyst-assistant" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+    // Language toggle — unified system
+    function toggleLanguage() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-language') || 'en';
+      const next = current === 'en' ? 'zh' : 'en';
+      html.setAttribute('data-language', next);
+      html.setAttribute('lang', next === 'zh' ? 'zh-CN' : 'en');
+      localStorage.setItem('language', next);
+    }
+    const savedLang = localStorage.getItem('language') || 'en';
+    document.documentElement.setAttribute('data-language', savedLang);
+    document.documentElement.setAttribute('lang', savedLang === 'zh' ? 'zh-CN' : 'en');
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🤖 AI Engineering</div>
-        <h3>Todo &amp; Email AI Agent</h3>
-        <p class="project-cn">智能待办事项与邮件代理</p>
-        <p>Agentic assistant that reads, drafts, and sends emails via Gmail API while managing a to-do list across multi-step reasoning loops. Built with LangGraph, Gmail API, DeepSeek, and Streamlit.</p>
-        <p class="project-links">
-          <a href="https://github.com/helloworldceo/todo-email-automation-agent" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+    // Mobile nav
+    function toggleNav() {
+      const menu = document.getElementById('nav-menu');
+      const btn = document.querySelector('.nav-toggle');
+      const isOpen = menu.classList.toggle('open');
+      btn.setAttribute('aria-expanded', isOpen);
+    }
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🔒 AI Security</div>
-        <h3>Prompt Injection Scanner</h3>
-        <p class="project-cn">提示词注入漏洞扫描工具</p>
-        <p>CLI tool that tests LLM system prompts against 22 categorized prompt injection payloads using keyword and LLM-judge evaluation modes. Detects jailbreaks, role-play bypasses, and data-extraction attacks.</p>
-        <p class="project-links">
-          <a href="https://github.com/helloworldceo/prompt-injection-scanner" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+    // Back to top
+    const backToTop = document.getElementById('back-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 500) backToTop.classList.add('visible');
+      else backToTop.classList.remove('visible');
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🔒 Security</div>
-        <h3>Vulnerable Web App</h3>
-        <p class="project-cn">Web 安全漏洞教学平台</p>
-        <p>Intentionally vulnerable Flask + SQLite web application with 6 documented vulnerabilities (SQLi, Stored XSS, Reflected XSS, IDOR) and a professional security assessment report with PoC exploits and secure fixes.</p>
-        <p class="project-links">
-          <a href="https://github.com/helloworldceo/vuln-web-app" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+    // Project filters
+    function filterProjects(category, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected', 'true');
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🔒 Security</div>
-        <h3>Network Traffic Analyzer</h3>
-        <p class="project-cn">网络流量安全分析工具</p>
-        <p>Python CLI tool using Scapy to detect port scans (sliding-window algorithm) and cleartext credential leaks (FTP, Telnet, HTTP Basic Auth, POST bodies) from live interfaces or PCAP files, with colour-coded alerts and JSON reporting.</p>
-        <p class="project-links">
-          <a href="https://github.com/helloworldceo/network-traffic-analyzer" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+      document.querySelectorAll('.project-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    }
 
-      <!-- ── Web & Commerce Projects ── -->
-      <div class="project-card project-featured">
-        <div class="project-badge">🛒 E-Commerce</div>
-        <h3>EthioMarket</h3>
-        <p class="project-cn">埃塞俄比亚特色电商平台</p>
-        <p>E-commerce storefront for authentic Ethiopian products, built in both static HTML/CSS/JS and React + Vite versions with shopping, cart, checkout, and blog flows.</p>
-        <p class="project-links">
-          <a href="https://ethiomarket.store" target="_blank" rel="noopener">Live</a>
-          <a href="https://github.com/Helloworldceo/Ethiomarket" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+    // Marquee population — avoids 50+ lines of duplicated HTML
+    const marqueeItems = [
+      'Python','JavaScript','TypeScript','React','Next.js','Node.js',
+      'Docker','PostgreSQL','TensorFlow','PyTorch','Git','Linux',
+      'Angular','REST APIs','EV Charging','ESS','Microgrids',
+      'LangChain','LangGraph','RAG','ChromaDB','LangSmith',
+      'Streamlit','Scapy','Prompt Injection'
+    ];
+    const track = document.getElementById('marqueeTrack');
+    if (track) {
+      const createSpan = (text) => { const s = document.createElement('span'); s.textContent = text; return s; };
+      const createSep = () => { const s = document.createElement('span'); s.textContent = '·'; return s; };
+      const build = () => {
+        marqueeItems.forEach((item, i) => {
+          track.appendChild(createSpan(item));
+          if (i < marqueeItems.length - 1) track.appendChild(createSep());
+        });
+      };
+      build();
+      track.appendChild(createSep());
+      build(); // exact duplicate for seamless CSS loop
+    }
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🎓 EdTech</div>
-        <h3>helloworldEdu</h3>
-        <p class="project-cn">在线学习管理平台</p>
-        <p>Learning management platform built with Next.js, TypeScript, Prisma, and PostgreSQL, with course delivery, enrollment, quizzes, certificates, and Vercel deployment support.</p>
-        <p class="project-links">
-          <a href="https://helloworld-edu-seven.vercel.app/" target="_blank" rel="noopener">Live</a>
-          <a href="https://github.com/Helloworldceo/helloworldEdu" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+    // Bilingual typing animation
+    (function initTyping() {
+      const el = document.getElementById('typed-text');
+      if (!el) return;
+      const rolesByLanguage = {
+        en: ['Agentic AI Security','LLM / RAG Systems','AI Security Researcher','Cybersecurity Engineer','Software Engineer','Solution Engineer','Full-Stack Builder'],
+        zh: ['智能体 AI 安全','大模型 / RAG 系统','AI 安全研究者','网络安全工程师','软件工程师','解决方案工程师','全栈构建者'],
+      };
+      let lang = document.documentElement.getAttribute('data-language') || 'en';
+      let roles = rolesByLanguage[lang] || rolesByLanguage.en;
+      let roleIdx = 0, charIdx = 0, deleting = false, timerId = null;
 
-      <div class="project-card project-featured">
-        <div class="project-badge">🌍 Web</div>
-        <h3>Ethioweb.net</h3>
-        <p class="project-cn">海外埃塞社区信息平台</p>
-        <p>Community-focused web platform for Ethiopians in China, built with TypeScript and Vite-based frontend tooling to share resources, connections, and useful local information.</p>
-        <p class="project-links">
-          <a href="https://ethiopianweb.net" target="_blank" rel="noopener">Live</a>
-          <a href="https://github.com/Helloworldceo/Website" target="_blank" rel="noopener">GitHub</a>
-        </p>
-      </div>
+      function tick() {
+        const current = roles[roleIdx];
+        if (!deleting) {
+          el.textContent = current.substring(0, charIdx + 1);
+          charIdx++;
+          if (charIdx === current.length) { deleting = true; timerId = setTimeout(tick, 1800); return; }
+          timerId = setTimeout(tick, 80);
+        } else {
+          el.textContent = current.substring(0, charIdx - 1);
+          charIdx--;
+          if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; timerId = setTimeout(tick, 400); return; }
+          timerId = setTimeout(tick, 40);
+        }
+      }
 
-      <div class="project-card">
-        <div class="project-badge">⚡ Energy</div>
-        <h3>Midroc Gold Hybrid Microgrid</h3>
-        <p class="project-cn">Midroc Gold 离网混合微电网项目</p>
-        <p>Led system sizing, hybrid optimization, and feasibility analysis for a 7MW PV + 2MW BESS + diesel off-grid microgrid designed to improve reliability and reduce diesel use for mining operations.</p>
-      </div>
+      // Watch for data-language attribute changes
+      new MutationObserver(() => {
+        const newLang = document.documentElement.getAttribute('data-language') || 'en';
+        if (newLang !== lang) {
+          lang = newLang;
+          roles = rolesByLanguage[lang] || rolesByLanguage.en;
+          roleIdx = 0; charIdx = 0; deleting = false;
+          el.textContent = '';
+          if (timerId) clearTimeout(timerId);
+          timerId = setTimeout(tick, 50);
+        }
+      }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
 
-      <div class="project-card">
-        <div class="project-badge">⚡ Energy</div>
-        <h3>Roha Health Center PV-ESS-EV Microgrid</h3>
-        <p class="project-cn">Roha 医疗中心光伏储能与充电微电网</p>
-        <p>Designed an 818kWp rooftop PV + 261kWh BESS + EV charging microgrid for a healthcare facility, including backup strategy and grid-tie control logic for critical medical loads.</p>
-      </div>
+      tick();
+    })();
 
-      <div class="project-card">
-        <div class="project-badge">⚡ Energy</div>
-        <h3>German Square Fast-Charging Station</h3>
-        <p class="project-cn">German Square 商业快充站项目</p>
-        <p>Led layout design, power distribution sizing, and grid integration analysis for a 960kW commercial charging station with 8 dual-gun 120kW DC chargers serving 100+ EVs daily.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">⚡ Energy</div>
-        <h3>Midroc Hospital PV &amp; BESS Backup</h3>
-        <p class="project-cn">Midroc 医院光伏与储能备电项目</p>
-        <p>Designed rooftop PV layout, 10MWh BESS sizing, and backup power control logic to cut grid costs and strengthen resilience for critical hospital operations.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">⚡ Energy</div>
-        <h3>Customized PV-BESS Backup Solutions</h3>
-        <p class="project-cn">银行与住宅定制化光储备电方案</p>
-        <p>Delivered tailored PV-BESS backup systems for bank branches and residential clients through load profiling, system sizing, proposal design, and reliability-focused planning.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🤖 AI/ML</div>
-        <h3>SVM-Based Driver Drowsiness Detection</h3>
-        <p class="project-cn">基于SVM的驾驶员疲劳检测</p>
-        <p>Built an ML pipeline for classifying drowsy vs. alert states from EEG brain waves. Compared SVM (98%), LSTM (93%), KNN (87%).</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🤖 AI/ML</div>
-        <h3>Deep Learning — NanoGPT</h3>
-        <p class="project-cn">深度学习项目 — NanoGPT训练与分析</p>
-        <p>NanoGPT training & analysis, Transformer architecture study (GPT, BERT, ELMo).</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🔒 Security</div>
-        <h3>Web Security Testing</h3>
-        <p class="project-cn">Web安全测试</p>
-        <p>CSRF, XSS, SQL Injection, SSL/TLS penetration testing labs in Docker-based SEED environments.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🌐 Web</div>
-        <h3>Study Abroad Management Website</h3>
-        <p class="project-cn">出国留学管理网站</p>
-        <p>Full-stack web application for managing study abroad processes.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🏆 Award</div>
-        <h3>Maze Robot</h3>
-        <p class="project-cn">迷宫机器人（获奖）</p>
-        <p>Autonomous maze-solving robot with sensor integration. Won 3rd Prize at World Vocational College Skills Competition.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🔗 Blockchain</div>
-        <h3>Blockchain Implementation</h3>
-        <p class="project-cn">区块链实现</p>
-        <p>Distributed systems and cryptographic security protocols.</p>
-      </div>
-
-      <div class="project-card">
-        <div class="project-badge">🌐 Web</div>
-        <h3>Responsive Web Design Projects</h3>
-        <p class="project-cn">响应式网页设计项目</p>
-        <p>Modern responsive websites using contemporary frameworks and design patterns.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CVS ═══ -->
-<section id="cvs" class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">05 — CVs</span>CVs <span class="cn">简历版本</span></h2>
-    <div class="cv-grid">
-      <div class="cv-card cv-card-primary">
-        <div class="cv-badge">💻 Software Track</div>
-        <h3>Original CV</h3>
-        <p class="cv-cn">软件工程 / AI / 网络安全 / 全栈开发</p>
-        <p>This is the main software-focused CV for Software Engineer, AI Engineer, Cybersecurity, and Full-Stack roles.</p>
-        <div class="cv-tags">
-          <span>Software Engineer</span>
-          <span>AI Engineer</span>
-          <span>Cybersecurity</span>
-          <span>Full-Stack</span>
-        </div>
-        <p class="cv-links">
-          <a href="David_大卫_CV.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="David_大卫_CV.pdf" download="David_大卫_CV.pdf">Download</a>
-        </p>
-      </div>
-
-      <div class="cv-card">
-        <div class="cv-badge">⚡ Energy Track</div>
-        <h3>David-CV</h3>
-        <p class="cv-cn">能源解决方案工程师 / 光储充 / 微电网</p>
-        <p>This CV is tailored for Energy Solution Engineer roles, highlighting PV-BESS systems, EV charging infrastructure, hybrid microgrids, and international technical solution delivery.</p>
-        <div class="cv-tags">
-          <span>Energy Solution Engineer</span>
-          <span>PV-BESS</span>
-          <span>EV Charging</span>
-          <span>Microgrids</span>
-        </div>
-        <p class="cv-links">
-          <a href="David-CV.pdf" target="_blank" rel="noopener">Open PDF</a>
-          <a href="David-CV.pdf" download="David-CV.pdf">Download</a>
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ EDUCATION ═══ -->
-<section id="education" class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">06 — Education</span>Education <span class="cn">教育背景</span></h2>
-    <div class="edu-grid">
-
-      <div class="edu-card edu-highlight">
-        <div class="edu-year">2023 – Present</div>
-        <h3>MSc in Software Engineering</h3>
-        <p class="edu-cn">软件工程硕士</p>
-        <p class="edu-school">University of Science and Technology of China (USTC)<br>中国科学技术大学</p>
-      </div>
-
-      <div class="edu-card edu-highlight">
-        <div class="edu-year">2019 – 2023</div>
-        <h3>BSc in Computer Science <span class="gpa">GPA: 4.7/5.0</span></h3>
-        <p class="edu-cn">计算机科学学士</p>
-        <p class="edu-school">Changzhou University 常州大学</p>
-      </div>
-
-      <div class="edu-card">
-        <div class="edu-year">2021</div>
-        <h3>Global Summer School: Innovation for SDG</h3>
-        <p class="edu-cn">全球暑期学校：可持续发展目标创新</p>
-        <p class="edu-school">Tsinghua University 清华大学</p>
-      </div>
-
-      <div class="edu-card">
-        <div class="edu-year">2021</div>
-        <h3>Innovation & Entrepreneurship in the Digital Economy</h3>
-        <p class="edu-cn">数字经济中的创新与创业</p>
-        <p class="edu-school">Tsinghua University 清华大学</p>
-      </div>
-
-      <div class="edu-card">
-        <div class="edu-year">2019</div>
-        <h3>Chinese Language Studies</h3>
-        <p class="edu-cn">汉语学习</p>
-        <p class="edu-school">Qingdao University 青岛大学</p>
-      </div>
-
-      <div class="edu-card">
-        <div class="edu-year">2018</div>
-        <h3>Computer Hardware & Software Maintenance</h3>
-        <p class="edu-cn">计算机软硬件维护</p>
-        <p class="edu-school">EBS Computer Training EBS计算机培训中心</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CERTIFICATIONS ═══ -->
-<section id="certifications" class="section section-alt">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">07 — Certifications</span>Certifications <span class="cn">认证证书</span></h2>
-
-    <div class="cert-grid">
-      <div class="cert-item">
-        <span class="cert-icon">🏛️</span>
-        <div>
-          <strong>Blockchain & Digital Economy Entrepreneurship (Med AI)</strong>
-          <p>Tsinghua University, 2021<br><span class="cn">清华大学，2021年</span></p>
-        </div>
-      </div>
-      <div class="cert-item">
-        <span class="cert-icon">📋</span>
-        <div>
-          <strong>Project Management Certification</strong>
-          <p>项目管理认证 (2019 – Present)</p>
-        </div>
-      </div>
-      <div class="cert-item">
-        <span class="cert-icon">🗣️</span>
-        <div>
-          <strong>Language Proficiency</strong>
-          <p>English · Amharic · Afaan Oromo · HSK 4 Chinese 汉语水平考试 · French B1 法语</p>
-        </div>
-      </div>
-    </div>
-
-    <h3 class="cert-sub-title">Technical Certificates 技术认证</h3>
-    <div class="cert-badges">
-      <a href="Python%20Developer.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🐍</span>Python Developer
-      </a>
-      <a href="Introduction%20To%20Python.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🐍</span>Intro to Python
-      </a>
-      <a href="Python%20for%20Beginners.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🐍</span>Python for Beginners
-      </a>
-      <a href="Web%20Developer%20with%20Angular.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🅰️</span>Web Dev with Angular
-      </a>
-      <a href="Introduction%20to%20HTML.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🌐</span>Intro to HTML
-      </a>
-      <a href="Introduction%20to%20C.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">⚙️</span>Intro to C
-      </a>
-      <a href="SQL%20Intermediate%20Certificate.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🗄️</span>SQL Intermediate
-      </a>
-      <a href="Data%20Analysis.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">📊</span>Data Analysis
-      </a>
-      <a href="Data%20Analysis%20Fundamentals.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">📊</span>Data Analysis Fundamentals
-      </a>
-      <a href="Coding%20for%20Data.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">📊</span>Coding for Data
-      </a>
-      <a href="Android%20Developer.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">📱</span>Android Developer
-      </a>
-      <a href="Android%20Developer%20Fundamentals.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">📱</span>Android Dev Fundamentals
-      </a>
-      <a href="Programming%20Fundamentals.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">💡</span>Programming Fundamentals
-      </a>
-      <a href="Tech%20for%20Everyone.pdf" target="_blank" class="cert-badge">
-        <span class="cert-badge-icon">🖥️</span>Tech for Everyone
-      </a>
-    </div>
-
-  </div>
-</section>
-
-<!-- ═══ AWARDS ═══ -->
-<section id="awards" class="section">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">08 — Honors</span>Honors & Awards <span class="cn">荣誉奖项</span></h2>
-    <div class="awards-list">
-      <div class="award-item">
-        <span class="award-icon">🏅</span>
-        <div>
-          <strong>China Scholarship Council (CSC) Award</strong>
-          <p>国家留学基金委（CSC）奖学金</p>
-        </div>
-      </div>
-      <div class="award-item">
-        <span class="award-icon">🥉</span>
-        <div>
-          <strong>3rd Prize — World Vocational College Skills Competition (Maze Robot)</strong>
-          <p>世界职业院校技能大赛三等奖（迷宫机器人）</p>
-        </div>
-      </div>
-      <div class="award-item">
-        <span class="award-icon">⭐</span>
-        <div>
-          <strong>Outstanding Student Leader — Changzhou University</strong>
-          <p>常州大学杰出学生干部</p>
-        </div>
-      </div>
-      <div class="award-item">
-        <span class="award-icon">💡</span>
-        <div>
-          <strong>Innovation Recognition — Tsinghua University</strong>
-          <p>清华大学创新表彰</p>
-        </div>
-      </div>
-      <div class="award-item">
-        <span class="award-icon">📺</span>
-        <div>
-          <strong>Featured on CGTN, CCTV1, China Daily</strong>
-          <p>曾在CGTN、CCTV1、《中国日报》上报道</p>
-        </div>
-      </div>
-      <div class="award-item">
-        <span class="award-icon">🎓</span>
-        <div>
-          <strong>25+ Academic Honors and Certifications</strong>
-          <p>获得25+项学术荣誉和认证</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ CONTACT ═══ -->
-<section id="contact" class="section section-alt">
-  <div class="container">
-    <h2 class="section-title"><span class="section-number">09 — Contact</span>Contact <span class="cn">联系方式</span></h2>
-    <div class="contact-grid">
-      <a href="mailto:davidabdisa40@gmail.com" class="contact-card">
-        <span class="contact-icon">✉️</span>
-        <strong>Email</strong>
-        <p>davidabdisa40@gmail.com</p>
-      </a>
-      <a href="tel:+8613235178205" class="contact-card">
-        <span class="contact-icon">📱</span>
-        <strong>Phone</strong>
-        <p>+86 132-3517-8205</p>
-      </a>
-      <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" class="contact-card">
-        <span class="contact-icon">💼</span>
-        <strong>LinkedIn</strong>
-        <p>dawit-abdisa-44915518a</p>
-      </a>
-      <div class="contact-card">
-        <span class="contact-icon">💬</span>
-        <strong>WeChat</strong>
-        <p>Helloworld_Ceo</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ═══ FOOTER ═══ -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">David 大卫</div>
-    <p class="footer-tagline">Software engineer building at the intersection of AI, security, and energy.</p>
-    <div class="footer-socials">
-      <a href="https://github.com/Helloworldceo" target="_blank" rel="noopener" aria-label="GitHub">⌘</a>
-      <a href="https://linkedin.com/in/dawit-abdisa-44915518a" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-      <a href="mailto:davidabdisa40@gmail.com" aria-label="Email">✉</a>
-    </div>
-    <p class="footer-copy">© 2026 David 大卫 — Crafted with intention</p>
-  </div>
-</footer>
-
-<button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
-  ↑
-</button>
-
-<script src="analytics-config.js?v=20260508-1"></script>
-<script src="script.js?v=20260508-1"></script>
+  </script>
 </body>
 </html>

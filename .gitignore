@@ -1,1 +1,13 @@
 .DS_Store
+
+# LaTeX build artifacts
+*.aux
+*.log
+*.out
+missfont.log
+
+# Personal/draft images not used in portfolio
+photo_headshot.jpg
+placeholder_photo.jpg
+CV\ template.png
+Weixin\ Image_*
