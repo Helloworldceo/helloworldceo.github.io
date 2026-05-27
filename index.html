@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-language="en">
+<html lang="en" data-theme="dark" data-language="en" data-style="atelier">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,567 +10,23 @@
   <meta property="og:title" content="Dawit Abdisa (Dave) | Portfolio">
   <meta property="og:description" content="Software engineer, AI builder, and problem solver: web products, energy systems, LLM applications, and security research. Currently researching AI security.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://yourdomain.com/">
-  <meta property="og:image" content="https://yourdomain.com/og-image.jpg">
+  <meta property="og:url" content="https://helloworldceo.github.io/">
+  <meta property="og:image" content="https://helloworldceo.github.io/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Dawit Abdisa (Dave) | Portfolio">
+  <meta name="twitter:description" content="Software engineer and AI security researcher building at the intersection of LLMs, RAG, and real-world systems.">
+  <meta name="twitter:image" content="https://helloworldceo.github.io/og-image.svg">
   <meta name="theme-color" content="#0f172a">
+  <link rel="canonical" href="https://helloworldceo.github.io/">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="favicon.svg">
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Space+Grotesk:wght@400;500;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@10..48,500;10..48,700;10..48,800&family=Manrope:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
   
-  <style>
-    :root {
-      --bg: #0f172a;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #38bdf8;
-      --card: #1e293b;
-      --border: #334155;
-    }
-    [data-theme="light"] {
-      --bg: #ffffff;
-      --text: #0f172a;
-      --muted: #64748b;
-      --accent: #0284c7;
-      --card: #f1f5f9;
-      --border: #e2e8f0;
-    }
-    * { box-sizing: border-box; margin: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    /* Unified bilingual system: one rule, zero exceptions */
-    [data-language="en"] [data-lang="zh"] { display: none !important; }
-    [data-language="zh"] [data-lang="en"] { display: none !important; }
-
-    /* Accessibility */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 0;
-      background: var(--accent);
-      color: #fff;
-      padding: 8px 16px;
-      z-index: 10000;
-      transition: top 0.2s;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    .skip-link:focus { top: 0; }
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0,0,0,0);
-      white-space: nowrap;
-      border-width: 0;
-    }
-
-    /* Particles canvas */
-    #particles {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    /* Layout */
-    main { position: relative; z-index: 1; }
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
-    .section { padding: 80px 0; }
-    .section-alt { background: rgba(255,255,255,0.02); }
-
-    /* Navigation */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      background: rgba(15,23,42,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      z-index: 100;
-    }
-    [data-theme="light"] nav { background: rgba(255,255,255,0.85); }
-    .nav-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 16px 24px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: var(--text);
-      text-decoration: none;
-    }
-    .nav-logo span { color: var(--accent); }
-    .nav-right { display: flex; align-items: center; gap: 12px; }
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      list-style: none;
-      padding: 0;
-    }
-    .nav-links a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
-    .nav-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.25rem; cursor: pointer; }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s;
-      cursor: pointer;
-      border: none;
-      font-family: inherit;
-      font-size: 0.95rem;
-    }
-    .btn-primary { background: var(--accent); color: #fff; }
-    .btn-outline { background: transparent; color: var(--text); border: 1px solid var(--border); }
-    .btn:hover { transform: translateY(-2px); opacity: 0.92; }
-
-    /* Hero */
-    #hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 120px 24px 80px;
-      position: relative;
-    }
-    .hero-photo {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 3px solid var(--accent);
-      margin: 0 auto 24px;
-    }
-    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .hero-greeting { color: var(--muted); font-size: 1.1rem; margin-bottom: 8px; }
-    .hero-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.1;
-    }
-    .hero-tagline {
-      font-size: 1.25rem;
-      color: var(--accent);
-      margin-bottom: 16px;
-      min-height: 1.5em;
-    }
-    .typed-cursor { animation: blink 1s step-end infinite; }
-    @keyframes blink { 50% { opacity: 0; } }
-    .hero-lead { max-width: 640px; color: var(--muted); margin: 0 auto 32px; }
-    .hero-cta { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-    .hero-metrics {
-      display: flex;
-      gap: 40px;
-      margin-top: 48px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .hero-metric { text-align: center; }
-    .hero-metric-label {
-      display: block;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-    .hero-metric strong { font-size: 1rem; color: var(--text); }
-
-    /* Section titles */
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      margin-bottom: 48px;
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .section-number {
-      color: var(--accent);
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      white-space: nowrap;
-    }
-
-    /* About */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 48px;
-      align-items: start;
-    }
-    .about-text p { margin-bottom: 16px; color: var(--muted); }
-    .about-facts {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .fact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      text-align: center;
-    }
-    .fact-number { display: block; font-size: 2rem; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
-    .fact-label { font-size: 0.85rem; color: var(--muted); }
-
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-bottom: 48px;
-    }
-    .skill-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .skill-icon { font-size: 1.5rem; margin-bottom: 12px; }
-    .skill-card h3 { margin-bottom: 12px; font-size: 1.1rem; }
-    .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-    .skill-tags span {
-      background: rgba(56,189,248,0.1);
-      color: var(--accent);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.8rem;
-    }
-
-    /* Marquee: populated by JS to avoid HTML bloat */
-    .tech-marquee {
-      overflow: hidden;
-      white-space: nowrap;
-      position: relative;
-      mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-    }
-    .marquee-track {
-      display: inline-flex;
-      gap: 24px;
-      animation: marquee 35s linear infinite;
-      will-change: transform;
-    }
-    .marquee-track span {
-      color: var(--muted);
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    @keyframes marquee {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Timeline */
-    .timeline { position: relative; padding-left: 24px; }
-    .timeline::before {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 2px;
-      background: var(--border);
-    }
-    .timeline-item { position: relative; margin-bottom: 40px; padding-left: 24px; }
-    .timeline-dot {
-      position: absolute;
-      left: -29px; top: 4px;
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      background: var(--accent);
-      border: 2px solid var(--bg);
-    }
-    .timeline-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 8px;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .timeline-header h3 { font-size: 1.1rem; }
-    .timeline-date { font-size: 0.85rem; color: var(--muted); white-space: nowrap; }
-    .timeline-subtitle { font-size: 0.9rem; color: var(--muted); margin-bottom: 12px; }
-    .timeline-content ul { list-style: none; padding: 0; }
-    .timeline-content li {
-      margin-bottom: 12px;
-      color: var(--muted);
-      padding-left: 16px;
-      position: relative;
-    }
-    .timeline-content li::before { content: '›'; position: absolute; left: 0; color: var(--accent); }
-    .timeline-content a { color: var(--accent); }
-
-    /* Projects */
-    .project-filters {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 32px;
-      flex-wrap: wrap;
-    }
-    .filter-btn {
-      background: transparent;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 8px 16px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-family: inherit;
-      font-size: 0.85rem;
-      transition: all 0.2s;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--accent);
-      color: #fff;
-      border-color: var(--accent);
-    }
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-    }
-    .project-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: transform 0.2s, border-color 0.2s;
-    }
-    .project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-    .project-card.hidden { display: none; }
-    .project-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .project-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .project-card p { color: var(--muted); font-size: 0.9rem; margin-bottom: 12px; }
-    .project-links a { color: var(--accent); text-decoration: none; font-size: 0.9rem; margin-right: 16px; }
-    .project-links a:hover { text-decoration: underline; }
-
-    /* CVs */
-    .cv-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-    }
-    .cv-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 32px;
-    }
-    .cv-card-primary { border-color: var(--accent); }
-    .cv-badge {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
-      display: block;
-    }
-    .cv-card h3 { margin-bottom: 8px; }
-    .cv-card > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 16px; }
-    .cv-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
-    .cv-tags span {
-      background: rgba(56,189,248,0.1);
-      color: var(--accent);
-      padding: 4px 10px;
-      border-radius: 20px;
-      font-size: 0.75rem;
-    }
-    .cv-links a { color: var(--accent); text-decoration: none; font-weight: 500; }
-
-    /* Education */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-    .edu-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-    }
-    .edu-highlight { border-color: var(--accent); }
-    .edu-year { font-size: 0.8rem; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; }
-    .edu-card h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    .gpa { color: var(--muted); font-size: 0.9rem; font-weight: 400; margin-left: 4px; }
-    .edu-school { color: var(--muted); font-size: 0.9rem; }
-
-    /* Certs */
-    .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
-    .cert-item { display: flex; gap: 16px; align-items: flex-start; }
-    .cert-icon { font-size: 1.5rem; line-height: 1; }
-    .cert-item strong { display: block; margin-bottom: 4px; }
-    .cert-item p { color: var(--muted); font-size: 0.85rem; }
-    .cert-sub-title { margin: 32px 0 16px; font-size: 1.1rem; }
-    .cert-badges { display: flex; flex-wrap: wrap; gap: 12px; }
-    .cert-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text);
-      font-size: 0.85rem;
-      transition: border-color 0.2s;
-    }
-    .cert-badge:hover { border-color: var(--accent); }
-
-    /* Awards */
-    .awards-list { display: grid; gap: 16px; }
-    .award-item {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-      background: var(--card);
-      border: 1px solid var(--border);
-      padding: 16px 24px;
-      border-radius: 8px;
-    }
-    .award-icon { font-size: 1.25rem; line-height: 1; }
-
-    /* Contact */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 24px;
-    }
-    .contact-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      text-align: center;
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .contact-card:hover { border-color: var(--accent); transform: translateY(-2px); }
-    .contact-card[role="button"] { cursor: pointer; }
-    .contact-icon { font-size: 1.5rem; display: block; margin-bottom: 8px; line-height: 1; }
-    .contact-card strong { display: block; margin-bottom: 4px; }
-    .contact-card p { color: var(--muted); font-size: 0.85rem; word-break: break-all; }
-
-    /* Footer */
-    footer { border-top: 1px solid var(--border); padding: 48px 24px; text-align: center; }
-    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; margin-bottom: 8px; }
-    .footer-tagline { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
-    .footer-socials { display: flex; justify-content: center; gap: 16px; margin-bottom: 24px; }
-    .footer-socials a, .footer-socials .social-static {
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s, border-color 0.2s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-    }
-    .footer-socials a:hover { color: var(--accent); border-color: var(--accent); }
-    .footer-socials svg { width: 18px; height: 18px; fill: currentColor; }
-    .footer-copy { color: var(--muted); font-size: 0.8rem; }
-
-    /* Back to top */
-    .back-to-top {
-      position: fixed;
-      bottom: 24px; right: 24px;
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s, transform 0.2s;
-      z-index: 50;
-      font-size: 1.25rem;
-    }
-    .back-to-top.visible { opacity: 1; pointer-events: auto; }
-    .back-to-top:hover { transform: translateY(-2px); border-color: var(--accent); }
-
-    /* Mobile */
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 100%; left: 0; right: 0;
-        background: var(--card);
-        flex-direction: column;
-        padding: 16px 24px;
-        border-bottom: 1px solid var(--border);
-      }
-      .nav-links.open { display: flex; }
-      .nav-toggle { display: block; }
-      .about-grid { grid-template-columns: 1fr; }
-      .hero-name { font-size: 2rem; }
-      .section { padding: 60px 0; }
-      .timeline-header { flex-direction: column; }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-      html { scroll-behavior: auto; }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 
   <!-- Structured data -->
   <script type="application/ld+json">
@@ -579,7 +35,7 @@
     "@type": "Person",
     "name": "Dawit Abdisa (Dave)",
     "jobTitle": "Software Engineer",
-    "url": "https://yourdomain.com/",
+    "url": "https://helloworldceo.github.io/",
     "sameAs": [
       "https://linkedin.com/in/dawit-abdisa-44915518a",
       "https://github.com/Helloworldceo"
@@ -608,6 +64,7 @@
           <span data-lang="en">EN</span>
           <span data-lang="zh">中文</span>
         </button>
+        <button class="design-toggle" aria-label="Style: Atelier" title="Style: Atelier" onclick="toggleDesign()">✦</button>
         <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode" onclick="toggleTheme()">
           <span data-lang="en">☀️</span>
           <span data-lang="zh">☀️</span>
@@ -619,6 +76,7 @@
         <li role="none"><a href="#education" role="menuitem"><span data-lang="en">Education</span><span data-lang="zh">教育</span></a></li>
         <li role="none"><a href="#experience" role="menuitem"><span data-lang="en">Experience</span><span data-lang="zh">工作经历</span></a></li>
         <li role="none"><a href="#projects" role="menuitem"><span data-lang="en">Projects</span><span data-lang="zh">项目</span></a></li>
+        <li role="none"><a href="#spotlight" role="menuitem"><span data-lang="en">Spotlight</span><span data-lang="zh">案例聚焦</span></a></li>
         <li role="none"><a href="#skills" role="menuitem"><span data-lang="en">Skills</span><span data-lang="zh">技能</span></a></li>
         <li role="none"><a href="#certifications" role="menuitem"><span data-lang="en">Certs</span><span data-lang="zh">证书</span></a></li>
         <li role="none"><a href="#awards" role="menuitem"><span data-lang="en">Awards</span><span data-lang="zh">荣誉</span></a></li>
@@ -646,10 +104,14 @@
         <p class="hero-tagline">
           <span id="typed-text">Software Engineer & AI Researcher</span><span class="typed-cursor" aria-hidden="true">|</span>
         </p>
-        <p class="hero-lead">
-          <span data-lang="en">I'm Dave, a software engineer, AI builder, and problem solver: web products, energy systems, LLM applications, and security research. I like making things that actually work, whether that's a client-facing web app, an agentic AI pipeline, or a tool that tests how easily a language model can be tricked. The common thread isn't the domain; it's the itch to understand how something works and then push it further. I'm currently doing research in AI security, and always looking for the next interesting problem.</span>
+        <p class="hero-lead collapsed" id="hero-lead">
+          <span class="hero-lead-note" data-lang="en">I'm Dave, a software engineer, AI builder, and problem solver: web products, energy systems, LLM applications, and security research. I like making things that actually work, whether that's a client-facing web app, an agentic AI pipeline, or a tool that tests how easily a language model can be tricked. The common thread isn't the domain; it's the itch to understand how something works and then push it further. I'm currently doing research in AI security, and always looking for the next interesting problem.</span>
           <span data-lang="zh">我是 Dave，软件工程师、AI 构建者和问题解决者：Web 产品、能源系统、大模型应用与安全研究。我喜欢做真正能用的东西，无论是面向用户的 Web 应用、智能体 AI 流水线，还是测试语言模型有多容易被欺骗的工具。贯穿始终的不是领域，而是那种想搞清楚某件事如何运作、然后把它再推进一步的冲动。目前我在做 AI 安全方向的研究，也一直在寻找下一个有趣的问题。</span>
         </p>
+        <button type="button" id="hero-lead-toggle" class="hero-read-more" aria-expanded="false">
+          <span data-lang="en">Read more</span>
+          <span data-lang="zh">展开</span>
+        </button>
         <div class="hero-cta">
           <a href="#projects" class="btn btn-primary">
             <span data-lang="en">View My Work</span>
@@ -719,7 +181,7 @@
               </span>
             </div>
             <div class="fact-card">
-              <span class="fact-number">15+</span>
+              <span class="fact-number">30+</span>
               <span class="fact-label">
                 <span data-lang="en">Delivered Projects</span>
                 <span data-lang="zh">已交付项目</span>
@@ -975,6 +437,26 @@
             </h3>
             <p data-lang="en">Developed an AI-driven decision-support system for PV and battery energy storage feasibility analysis, combining multi-agent workflow orchestration, geospatial and solar resource assessment, scenario-based system sizing, financial modeling, and automated reporting.</p>
             <p data-lang="zh">开发了一个面向光伏与电池储能可行性分析的 AI 决策支持系统，整合多智能体工作流编排、地理与太阳能资源评估、情景化系统配置、财务建模与自动化报告生成。</p>
+            <ul class="project-story">
+              <li>
+                <strong data-lang="en">Problem:</strong>
+                <strong data-lang="zh">问题：</strong>
+                <span data-lang="en">Manual feasibility studies were slow and inconsistent.</span>
+                <span data-lang="zh">传统可行性分析流程耗时且一致性不足。</span>
+              </li>
+              <li>
+                <strong data-lang="en">Approach:</strong>
+                <strong data-lang="zh">方法：</strong>
+                <span data-lang="en">Built a multi-agent workflow with geospatial analysis + financial simulation.</span>
+                <span data-lang="zh">构建多智能体工作流，融合地理分析与财务仿真。</span>
+              </li>
+              <li>
+                <strong data-lang="en">Outcome:</strong>
+                <strong data-lang="zh">结果：</strong>
+                <span data-lang="en">Generated faster scenario reports for PV-BESS decision making.</span>
+                <span data-lang="zh">显著加快了光储方案的情景报告生成与决策效率。</span>
+              </li>
+            </ul>
           </div>
 
           <div class="project-card" data-category="ai">
@@ -988,6 +470,26 @@
             </h3>
             <p data-lang="en">Conversational RAG assistant: upload PDFs, TXT, or Markdown and ask questions grounded in your documents, with source citations and chat memory. Built with DeepSeek, LangChain LCEL, ChromaDB, and Streamlit. Includes RAGAS evaluation harness and LangSmith tracing.</p>
             <p data-lang="zh">对话式 RAG 助手，支持上传 PDF、TXT 或 Markdown 文档并基于内容进行问答，提供来源引用与会话记忆。基于 DeepSeek、LangChain LCEL、ChromaDB 与 Streamlit 构建，并集成 RAGAS 评估与 LangSmith 链路追踪。</p>
+            <ul class="project-story">
+              <li>
+                <strong data-lang="en">Problem:</strong>
+                <strong data-lang="zh">问题：</strong>
+                <span data-lang="en">Teams needed reliable Q&A from private docs.</span>
+                <span data-lang="zh">团队需要基于私有文档的可靠问答能力。</span>
+              </li>
+              <li>
+                <strong data-lang="en">Approach:</strong>
+                <strong data-lang="zh">方法：</strong>
+                <span data-lang="en">Implemented retrieval pipeline with citation grounding and eval traces.</span>
+                <span data-lang="zh">实现带来源引用的检索链路，并接入评估追踪。</span>
+              </li>
+              <li>
+                <strong data-lang="en">Outcome:</strong>
+                <strong data-lang="zh">结果：</strong>
+                <span data-lang="en">Improved answer trust and observability in production-style workflows.</span>
+                <span data-lang="zh">提升了答案可信度与流程可观测性。</span>
+              </li>
+            </ul>
             <p class="project-links">
               <a href="https://github.com/helloworldceo/rag-assistant" target="_blank" rel="noopener">GitHub →</a>
             </p>
@@ -1004,6 +506,26 @@
             </h3>
             <p data-lang="en">Ask questions about your data in plain English; converts natural language to SQL, auto-selects the best chart type, and returns AI-generated bullet-point insights. Blocks mutating queries for safety. Built with DeepSeek, LangChain, Plotly, and Streamlit.</p>
             <p data-lang="zh">支持使用自然语言查询数据，自动将问题转换为 SQL、选择合适图表，并生成 AI 分析要点。系统会拦截修改型查询以增强安全性。基于 DeepSeek、LangChain、Plotly 与 Streamlit 构建。</p>
+            <ul class="project-story">
+              <li>
+                <strong data-lang="en">Problem:</strong>
+                <strong data-lang="zh">问题：</strong>
+                <span data-lang="en">Business users needed analytics without writing SQL.</span>
+                <span data-lang="zh">业务用户希望无 SQL 门槛完成分析。</span>
+              </li>
+              <li>
+                <strong data-lang="en">Approach:</strong>
+                <strong data-lang="zh">方法：</strong>
+                <span data-lang="en">Natural-language to SQL with chart recommendation and safe query guardrails.</span>
+                <span data-lang="zh">自然语言转 SQL，自动图表推荐，并加入安全查询防护。</span>
+              </li>
+              <li>
+                <strong data-lang="en">Outcome:</strong>
+                <strong data-lang="zh">结果：</strong>
+                <span data-lang="en">Delivered faster self-serve insights for non-technical stakeholders.</span>
+                <span data-lang="zh">让非技术角色更快获得可执行的数据洞察。</span>
+              </li>
+            </ul>
             <p class="project-links">
               <a href="https://github.com/helloworldceo/sql-data-analyst-assistant" target="_blank" rel="noopener">GitHub →</a>
             </p>
@@ -1290,6 +812,43 @@
             <p data-lang="en">Modern responsive websites using contemporary frameworks and design patterns.</p>
             <p data-lang="zh">使用现代框架与设计模式完成多项响应式网站开发项目。</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Case Study Spotlight -->
+    <section id="spotlight" class="section">
+      <div class="container">
+        <h2 class="section-title">
+          <span class="section-number">★</span>
+          <span data-lang="en">Case Study Spotlight</span>
+          <span data-lang="zh">案例聚焦</span>
+        </h2>
+        <div class="spotlight-shell">
+          <div class="spotlight-tabs" role="tablist" aria-label="Case study selector">
+            <button class="spotlight-tab active" type="button" role="tab" aria-selected="true" data-case="rag">
+              <span data-lang="en">RAG Assistant</span>
+              <span data-lang="zh">RAG 助手</span>
+            </button>
+            <button class="spotlight-tab" type="button" role="tab" aria-selected="false" data-case="pv">
+              <span data-lang="en">PV-BESS AI</span>
+              <span data-lang="zh">光储 AI 系统</span>
+            </button>
+            <button class="spotlight-tab" type="button" role="tab" aria-selected="false" data-case="security">
+              <span data-lang="en">Prompt Security</span>
+              <span data-lang="zh">提示词安全</span>
+            </button>
+          </div>
+
+          <article class="spotlight-card" aria-live="polite">
+            <h3 id="spotlight-title">RAG Assistant</h3>
+            <p id="spotlight-summary"></p>
+            <ul class="spotlight-metrics" id="spotlight-metrics"></ul>
+            <a id="spotlight-link" class="btn btn-outline" href="#projects">
+              <span data-lang="en">Open Full Project</span>
+              <span data-lang="zh">查看完整项目</span>
+            </a>
+          </article>
         </div>
       </div>
     </section>
@@ -1693,14 +1252,14 @@
             </strong>
             <p>dawit-abdisa-44915518a</p>
           </a>
-          <div class="contact-card" role="button" tabindex="0" aria-label="WeChat ID: Helloworld_Ceo">
+          <button type="button" class="contact-card contact-card-button" id="wechat-card" aria-label="WeChat ID: Helloworld_Ceo" data-copy="Helloworld_Ceo">
             <span class="contact-icon" aria-hidden="true">💬</span>
             <strong>
               <span data-lang="en">WeChat</span>
               <span data-lang="zh">微信</span>
             </strong>
             <p>Helloworld_Ceo</p>
-          </div>
+          </button>
         </div>
       </div>
     </section>
@@ -1748,132 +1307,8 @@
   </footer>
 
   <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">↑</button>
+  <p id="status-toast" class="status-toast" aria-live="polite"></p>
 
-  <script>
-    // Theme toggle
-    function toggleTheme() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme') || 'dark';
-      const next = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
-    }
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) document.documentElement.setAttribute('data-theme', savedTheme);
-
-    // Language toggle — unified system
-    function toggleLanguage() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-language') || 'en';
-      const next = current === 'en' ? 'zh' : 'en';
-      html.setAttribute('data-language', next);
-      html.setAttribute('lang', next === 'zh' ? 'zh-CN' : 'en');
-      localStorage.setItem('language', next);
-    }
-    const savedLang = localStorage.getItem('language') || 'en';
-    document.documentElement.setAttribute('data-language', savedLang);
-    document.documentElement.setAttribute('lang', savedLang === 'zh' ? 'zh-CN' : 'en');
-
-    // Mobile nav
-    function toggleNav() {
-      const menu = document.getElementById('nav-menu');
-      const btn = document.querySelector('.nav-toggle');
-      const isOpen = menu.classList.toggle('open');
-      btn.setAttribute('aria-expanded', isOpen);
-    }
-
-    // Back to top
-    const backToTop = document.getElementById('back-to-top');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 500) backToTop.classList.add('visible');
-      else backToTop.classList.remove('visible');
-    });
-    backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-
-    // Project filters
-    function filterProjects(category, btn) {
-      document.querySelectorAll('.filter-btn').forEach(b => {
-        b.classList.remove('active');
-        b.setAttribute('aria-selected', 'false');
-      });
-      btn.classList.add('active');
-      btn.setAttribute('aria-selected', 'true');
-
-      document.querySelectorAll('.project-card').forEach(card => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.classList.remove('hidden');
-        } else {
-          card.classList.add('hidden');
-        }
-      });
-    }
-
-    // Marquee population — avoids 50+ lines of duplicated HTML
-    const marqueeItems = [
-      'Python','JavaScript','TypeScript','React','Next.js','Node.js',
-      'Docker','PostgreSQL','TensorFlow','PyTorch','Git','Linux',
-      'Angular','REST APIs','EV Charging','ESS','Microgrids',
-      'LangChain','LangGraph','RAG','ChromaDB','LangSmith',
-      'Streamlit','Scapy','Prompt Injection'
-    ];
-    const track = document.getElementById('marqueeTrack');
-    if (track) {
-      const createSpan = (text) => { const s = document.createElement('span'); s.textContent = text; return s; };
-      const createSep = () => { const s = document.createElement('span'); s.textContent = '·'; return s; };
-      const build = () => {
-        marqueeItems.forEach((item, i) => {
-          track.appendChild(createSpan(item));
-          if (i < marqueeItems.length - 1) track.appendChild(createSep());
-        });
-      };
-      build();
-      track.appendChild(createSep());
-      build(); // exact duplicate for seamless CSS loop
-    }
-
-    // Bilingual typing animation
-    (function initTyping() {
-      const el = document.getElementById('typed-text');
-      if (!el) return;
-      const rolesByLanguage = {
-        en: ['Agentic AI Security','LLM / RAG Systems','AI Security Researcher','Cybersecurity Engineer','Software Engineer','Solution Engineer','Full-Stack Builder'],
-        zh: ['智能体 AI 安全','大模型 / RAG 系统','AI 安全研究者','网络安全工程师','软件工程师','解决方案工程师','全栈构建者'],
-      };
-      let lang = document.documentElement.getAttribute('data-language') || 'en';
-      let roles = rolesByLanguage[lang] || rolesByLanguage.en;
-      let roleIdx = 0, charIdx = 0, deleting = false, timerId = null;
-
-      function tick() {
-        const current = roles[roleIdx];
-        if (!deleting) {
-          el.textContent = current.substring(0, charIdx + 1);
-          charIdx++;
-          if (charIdx === current.length) { deleting = true; timerId = setTimeout(tick, 1800); return; }
-          timerId = setTimeout(tick, 80);
-        } else {
-          el.textContent = current.substring(0, charIdx - 1);
-          charIdx--;
-          if (charIdx === 0) { deleting = false; roleIdx = (roleIdx + 1) % roles.length; timerId = setTimeout(tick, 400); return; }
-          timerId = setTimeout(tick, 40);
-        }
-      }
-
-      // Watch for data-language attribute changes
-      new MutationObserver(() => {
-        const newLang = document.documentElement.getAttribute('data-language') || 'en';
-        if (newLang !== lang) {
-          lang = newLang;
-          roles = rolesByLanguage[lang] || rolesByLanguage.en;
-          roleIdx = 0; charIdx = 0; deleting = false;
-          el.textContent = '';
-          if (timerId) clearTimeout(timerId);
-          timerId = setTimeout(tick, 50);
-        }
-      }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-language'] });
-
-      tick();
-    })();
-
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
