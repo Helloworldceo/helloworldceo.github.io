@@ -1,0 +1,154 @@
+\documentclass[9pt,a4paper]{article}
+
+\usepackage[margin=0.48in]{geometry}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\setmainfont{Arial}
+\setsansfont{Arial}
+\setmonofont{Menlo}
+\setCJKmainfont{PingFang SC}
+
+\definecolor{accent}{RGB}{25,70,125}
+\definecolor{textgray}{RGB}{70,70,70}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent,
+  pdfauthor={Dawit Abdisa (David)},
+  pdftitle={David Bilingual CV (English + Chinese)}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.08em}
+\setlist[itemize]{leftmargin=1.05em,itemsep=0.02em,topsep=0.02em}
+
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\vspace{0.15em}\titlerule]
+\titlespacing*{\section}{0pt}{0.35em}{0.18em}
+
+\newcommand{\cvname}[1]{{\LARGE\bfseries #1}}
+\newcommand{\cvsubtitle}[1]{{\normalsize\color{textgray}#1}}
+\newcommand{\entry}[3]{\textbf{#1} \hfill \textit{#2}\\#3\vspace{0.1em}}
+
+\begin{document}
+
+% =========================
+% Page 1: English
+% =========================
+\cvname{David}
+
+\cvsubtitle{Software Engineer | AI Engineer | Energy Solution Engineer}
+
+\href{mailto:davidabdisa40@gmail.com}{davidabdisa40@gmail.com} \;|\; +86 132 3517 8205 \;|\;
+\href{https://helloworldceo.github.io}{helloworldceo.github.io}\\
+\href{https://linkedin.com/in/dawit-abdisa-44915518a}{linkedin.com/in/dawit-abdisa-44915518a} \;|\;
+\href{https://github.com/Helloworldceo}{github.com/Helloworldceo}
+
+\section*{Profile}
+MSc candidate in Software Engineering at USTC with experience in international technical pre-sales, renewable energy solutions, AI product prototyping, and full-stack delivery. Strong record in cross-cultural communication, client-facing execution, and translating technical proposals into business outcomes.
+
+\section*{Experience}
+\entry{StarCharge Digital Energy Co., Ltd. (Brand: StarCharge / 星星充电)}{2025 -- Present}{Energy Solution Engineer}
+\begin{itemize}
+  \item Represented the company in Kenya and Ethiopia engagements through client meetings, market research, and site inspections.
+  \item Engaged CEOs, CTOs, CFOs, and government officials; supported EV charging, storage, microgrid, VPP, and turnkey offerings; hosted international delegations.
+\end{itemize}
+
+\entry{Independent Practice}{2020 -- 2023}{Freelance Full-Stack Developer, Networking, Tutor}
+\begin{itemize}
+  \item Delivered websites and digital products from requirements through deployment.
+  \item Provided IT tutoring and technical consulting.
+\end{itemize}
+
+\entry{Independent Practice}{2019 -- 2024}{Social Media Advertising}
+\begin{itemize}
+  \item Ran promotion campaigns across major social platforms.
+\end{itemize}
+
+\section*{Education}
+\entry{University of Science and Technology of China (USTC)}{2023 -- Jan 2027}{MSc in Software Engineering}
+\entry{Changzhou University}{2019 -- 2023}{BSc in Computer Science (Top-ranked, GPA 4.7/5.0)}
+
+\section*{Selected Projects}
+\begin{itemize}
+  \item Conversational RAG Assistant (LangChain, ChromaDB, Streamlit).
+  \item Natural Language to SQL analyst assistant with charting and safety controls.
+  \item Renewable energy solutions including PV-BESS and EV charging scenarios.
+\end{itemize}
+
+\section*{Honors \& Certifications}
+CSC Award; 3rd Prize in World Vocational College Skills Competition; featured in CGTN/CCTV1/China Daily; certificates in Python, SQL, Data Analysis, Web Development, and Generative AI.
+
+\section*{Skills}
+Python, JavaScript, SQL, React, Node.js, Streamlit, LangChain, RAG systems, solution design, stakeholder communication.
+
+\section*{Languages}
+English (Fluent), Chinese (HSK 4), French (B1), Amharic (Native), Afaan Oromo (Native)
+
+\section*{Additional Information}
+Open to relocation and frequent international travel; preferred cities: Shanghai, Suzhou, Changzhou, Qingdao, Shenzhen.
+
+\newpage
+
+% =========================
+% Page 2: Chinese
+% =========================
+\cvname{大卫}
+
+\cvsubtitle{软件工程师 | AI 工程师 | 能源解决方案工程师}
+
+\href{mailto:davidabdisa40@gmail.com}{davidabdisa40@gmail.com} \;|\; +86 132 3517 8205 \;|\;
+\href{https://helloworldceo.github.io}{helloworldceo.github.io}\\
+\href{https://linkedin.com/in/dawit-abdisa-44915518a}{linkedin.com/in/dawit-abdisa-44915518a} \;|\;
+\href{https://github.com/Helloworldceo}{github.com/Helloworldceo}
+
+\section*{个人简介}
+中科大软件工程硕士在读，具备国际售前技术支持、新能源方案设计、AI 产品原型开发与全栈交付经验。擅长跨文化沟通与客户导向执行，能够把技术方案转化为可落地的业务价值。
+
+\section*{工作经历}
+\entry{万帮数字能源股份有限公司（品牌：星星充电 StarCharge）}{2025 -- 至今}{能源解决方案工程师}
+\begin{itemize}
+  \item 参与肯尼亚与埃塞俄比亚项目，负责客户会谈、市场调研与现场勘察。
+  \item 对接高层决策者，推动充电、储能、微电网、VPP 与交钥匙方案落地，并接待国际客户代表团。
+\end{itemize}
+
+\entry{独立实践}{2020 -- 2023}{自由职业全栈开发、网络与辅导}
+\begin{itemize}
+  \item 从需求到上线交付网站与数字产品。
+  \item 提供 IT 培训与技术咨询。
+\end{itemize}
+
+\entry{独立实践}{2019 -- 2024}{社交媒体广告}
+\begin{itemize}
+  \item 在主流社交平台执行内容推广与运营。
+\end{itemize}
+
+\section*{教育背景}
+\entry{中国科学技术大学（USTC）}{2023 -- 2027年1月}{软件工程硕士}
+\entry{常州大学}{2019 -- 2023}{计算机科学与技术本科（专业前列，GPA 4.7/5.0）}
+
+\section*{代表项目}
+\begin{itemize}
+  \item 对话式 RAG 助手（LangChain、ChromaDB、Streamlit）。
+  \item 自然语言转 SQL 数据分析助手（含可视化与安全控制）。
+  \item 光储充相关新能源方案支持项目。
+\end{itemize}
+
+\section*{荣誉与证书}
+获中国政府奖学金（CSC）；世界职业院校技能大赛三等奖；曾被 CGTN、CCTV1、中国日报报道；持有 Python、SQL、数据分析、Web 开发、生成式 AI 等证书。
+
+\section*{核心技能}
+Python、JavaScript、SQL、React、Node.js、Streamlit、LangChain、RAG 系统、方案设计、客户沟通。
+
+\section*{语言能力}
+英语（流利）、中文（HSK4）、法语（B1）、阿姆哈拉语（母语）、奥罗莫语（母语）
+
+\section*{补充信息}
+可接受异地与高频国际出差；意向城市包括上海、苏州、常州、青岛、深圳。
+
+\end{document}

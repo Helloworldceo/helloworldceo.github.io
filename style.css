@@ -515,6 +515,13 @@
       border-radius: 12px;
       padding: 32px;
     }
+
+    .cv-summary-line {
+      margin: -4px 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.01em;
+    }
     .cv-card-primary { border-color: var(--accent); }
     .cv-badge {
       font-size: 0.75rem;
